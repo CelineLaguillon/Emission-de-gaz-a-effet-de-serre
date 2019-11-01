@@ -24,16 +24,28 @@
 				if($_POST["login"]==$verification[1]){
 					session_start();
 					$_SESSION["id"]=$_POST['login'];
+					mysqli_close($connexion);
 					header("Location: accueil.php");
 				}
+				else{
+					header("Location: formulaire.php?id=1");
+				}
+			}
+			else{
+				header("Location: formulaire.php?id=1");
 			}
 
 
 
 			
 		}
+		else{
+			header("Location: formulaire.php?id=1");
+		}
 
 	}
-	print_r($_POST);
-	//header("Location: formulaire.php?id=1");
+	else{
+			header("Location: formulaire.php?id=1");
+		}
+	
 ?>

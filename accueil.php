@@ -22,7 +22,7 @@
 			<form method='post' action='creerBC.php'>			
 			<input type='submit' name='creer' value='Créer un bilan' >
 			</form>
-		
+			<a href="creerEtablissement.php">Ajouter un établissement</a>
 			<form method='post' action='modifierBC.php'>
 			<input type='submit' name='modifier' value='Modifier un bilan' >
 			</form>
