@@ -1,17 +1,14 @@
 <html>
 <?php
-	require("parametres.php");
+	require("fonction.php");
 	session_start();
 	if(!isset($_SESSION["id"])){
 			header("Location: formulaire.php");
 	}
-	if($connexion=mysqli_connect($serveur,$login,$mdp)){
-			mysqli_select_db($connexion,$bd)
-			or die("Impossible d'accèder à la base de données");
-			$tables="ETABLISSEMENT";
-			
-			
+	if(!$connexion=connexion()){
+		die();	
 	}
+	
 ?>
 		<head>
 			<meta charset='UTF-8'>
@@ -28,13 +25,7 @@
 			</form>
 			<?php
 			if(isset($_POST['nom']) && $_POST['nom']!=""){
-				$requete="INSERT INTO $tables VALUES ('{$_POST['nom']}')";
-				$resultat=mysqli_query($connexion,$requete);
-				$tables="LIAISON";
-				$requete="INSERT INTO $tables VALUES('{$_SESSION['id']}','{$_POST['nom']}')"; 
-				// doit ajouter la possibilité de lier un utilisateur à un établissement déja existant.
-				$resultat=mysqli_query($connexion,$requete);
-				echo "Action réussie"; // Faire des vrai vérifications, avertir si echec
+				ajout_établissement($connexion);
 				mysqli_close($connexion); 
 			}
 			?>

@@ -6,23 +6,22 @@
 	<body>
 		<div id='global'>
 <?php
-	require("parametres.php");
+	require("fonction.php");
 	session_start();
 	if(!isset($_SESSION["id"])){
 			header("Location: formulaire.php");
 	}
-	if($connexion=mysqli_connect($serveur,$login,$mdp)){
-			mysqli_select_db($connexion,$bd)
-			or die("Impossible d'accèder à la base de données");
-			echo "<h1>Les Postes : </h1>";
-			$tables="POSTE";
-			$requete="SELECT Nom,Quantite,Facteur FROM $tables where Bilan='{$_GET['bilan']}'";
-			$resultat=mysqli_query($connexion,$requete);
-					while(!is_null($mesposte=mysqli_fetch_row($resultat))) {
-						echo "$mesposte[0] $mesposte[1] $mesposte[2]";
-					}
+	if(!$connexion=connexion()){
+		die();	
 			
 	}
+	function ajout_poste($connexion){
+		$tables="POSTE";
+		$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
+		$resultat=mysqli_query($connexion,$requete);
+	}
+	echo "<h1>Les Postes : </h1>";
+	affichage_poste($connexion);
 ?>
 	
 			<h1> Compléter ce court formulaire : </h1>
@@ -41,12 +40,8 @@
 					
 					<?php
 					if(isset($_POST['nom']) && isset($_POST['enregistrer'])){
-						$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
-						$resultat=mysqli_query($connexion,$requete);
+						ajout_poste($connexion);
 					}
-
-
-
 					?>
 
 
