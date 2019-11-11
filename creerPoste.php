@@ -8,6 +8,14 @@
 		<head>
 			<meta charset='UTF-8'>
 			<link rel='stylesheet' href='style.css'/>
+			
+			<form method='post' action='accueil.php'>
+				<input type='submit' id="precedent" name='envoyer' value='Revenir à la page précédente' >
+			</form>
+			
+			<form method='post'>
+				<input type='submit' id = "deconnexion" name='deconnecter' value='Se deconnecter' required>
+			</form>
 		</head>
 
 		<body>

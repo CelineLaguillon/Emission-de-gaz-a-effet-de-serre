@@ -1,6 +1,6 @@
 <?php
 $serveur="localhost";
-$login="guest";
+$login="root";
 $mdp="";
 $bd="BCESR";
 ?>

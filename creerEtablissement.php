@@ -13,15 +13,23 @@
 		<head>
 			<meta charset='UTF-8'>
 			<link rel='stylesheet' href='style.css'/>
+			
+			<form method='post' action='accueil.php'>
+				<input type='submit' id="precedent" name='envoyer' value='Revenir à la page précédente' >
+			</form>
+			
+			<form method='post'>
+				<input type='submit' id = "deconnexion" name='deconnecter' value='Se deconnecter'>
+			</form>
 		</head>
 
 		<body>
 			<div id='global'>
-			<h1> Ajout d'un etablissement: </h1>
+			<h1>Ajouter un établissement</h1>
 			<form method='post' >
-			<label for='nom'>Nom : </label>
-			<input type='text' name='nom' id='nom'  placeholder='Ex : IUT_VELIZY' size='30' maxlength='10' required>
-			<input type='submit' name='enregistrer' value='Enregistrer cet établissement' required>
+				<label for='nom'>Nom de l'établissement : </label>
+				<input type='text' name='nom' id='nom'  placeholder='Exemple : IUT_VELIZY' size='30' maxlength='10' required>
+				<input type='submit' id = "enregistrer" name='enregistrer' value='Enregistrer cet établissement'>
 			</form>
 			<?php
 			if(isset($_POST['nom']) && $_POST['nom']!=""){
@@ -29,9 +37,6 @@
 				mysqli_close($connexion); 
 			}
 			?>
-			<form method='post' action='accueil.php'>
-			<input type='submit' name='envoyer' value='Revenir à la page précédente' >
-			</form>
 			
 			</div>
 		</body>

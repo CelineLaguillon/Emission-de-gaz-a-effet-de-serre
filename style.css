@@ -6,10 +6,20 @@ html
 body 
 {
 	max-height:50%;
-	padding: 0;
-	margin-left:auto;
-	margin-right:auto;
+	padding: auto;
+	margin: auto;
 	background: #d7f0c2;
+}
+
+#global
+{
+	min-height: 100%;
+	width: 1025px;
+	padding:auto;
+	margin-top:0%;
+	margin-left:21%;
+	text-align : center;
+	float:left;	
 }
 
 #global h1
@@ -17,31 +27,17 @@ body
 	padding: auto;
 	margin-left:auto;
 	margin-right:auto;
-	text-align : center;
+	text-align: center;
+	font-size: 40px;
 }
 
-
-
-#global
+#global h2
 {
-	min-height: 100%;
-	width: 1025px;
-	padding:auto;
-	padding-left:0%;
-	margin-top:8%;
-	margin-left:12%;
+	padding: auto;
+	margin-left:auto;
 	margin-right:auto;
-	text-align : center;
-	float:left;	
-}
-
-#global2
-{
-	min-height: 100%;
-	width: 1025px;
-	padding:auto;
-	margin-left:1%;
-	text-align : left;
+	text-align: left;
+	font-size: 25px;
 }
 
 input
@@ -54,96 +50,86 @@ input
 
 input[type="submit"]
 {
-	float:left;
-	padding:auto;
-	margin-right:37%;
-	margin-left:37.5%;
-	margin-top:1%;
 	font-size:16px;
 	color:noir;
 	background-color:#E2E3E7;
 	text-align:center;
 	height:40px;
+	width:180px;
+	margin-top:1%;
 }
 
-#navigation 
-{ 
-	width: 150px; 
-	float: left;
-}
-
-#navigation ul 
-{
-	margin: 0;
-	padding:0;
-	list-style: none;
-	text-align: center;
-}
-
-#navigation li 
+#connexion
 {
 	float:left;
-	margin:auto;
-	padding:0;
-	background-color:#c0c2c2;
+	margin-right:35%;
+	margin-left:41%;
+	margin-top:1%;
 }
 
-#navigation li a
+#deconnexion1
 {
-	display:block;
-	width:200px;
-	height:20%;
-	color:#a8adaf;
-	text-decoration:none;
-	padding:0;
+	float:right;
+	margin-right:1%;
+	margin-left:100%;
+	margin-top:0%;
 }
 
-#navigation ul li ul 
+#deconnexion
 {
-	display:none;
+	float:right;
+	margin-right:1%;
+	margin-left:100%;
+	margin-top:-3%;
 }
 
-#navigation ul li:hover ul
+#precedent
 {
-	display:block;
-}
- 
-#navigation li:hover ul li
-{
-	float:none;
-}
- 
-#navigation li ul 
-{
-	position:absolute;
-	z-index : 1;
+	float:left;
+	margin-right:100%;
+	margin-left:1%;
+	margin-top:0%;
+	width:250px;
 }
 
-#navigation a 
+#enregistrer
 {
-	padding: 150px;
+	float: center;
+	width: 245px;
+}
+
+#global a 
+{
+	padding: 5px;
 	line-height: 1.5;
 	font-size: 0.85em;
 	font-family: Verdana, sans-serif;
 	text-decoration: none;
 }
 
-#menu li 
-{ 
-	float: left; 
-	list-style-type: none; 
-}
-
-#menu li a, #menu li a:visited 
+#creer
 {
-  line-height: 35px;
-  font-size: 14px;
-  text-decoration: none;
-  color: #000000;
+	float: right;
+	margin-right: 10%;
+	margin-top: -9%;
 }
 
-#menu li a:hover
-{ 
-	background-color: #A9A9A9;
-	color: black;
+#modifier #supprimer
+{
+	float: right;
+}
+
+#modifier
+{
+	margin-left: 150px;
+}
+
+#supprimer
+{
+	margin-left: 5px;
+}
+
+#global label
+{
+	line-height: 35px;
 }
