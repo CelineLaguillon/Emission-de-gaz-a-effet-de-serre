@@ -81,5 +81,16 @@
 			$resultat=mysqli_query($connexion,$requete);
 		}
 	}
+	
+	//modifier bilan
+	function suppression_bilan($connexion){
+	   if(isset($_POST['nom'])){
+	        $table="bilan_carbone";
+			$requete="DELETE FROM $table WHERE nom='{$_POST['nom']}'";
+			$resultat=mysqli_query($connexion,$requete);
+			
+	    } 
+	}
+	
 
 ?>
