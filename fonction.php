@@ -82,7 +82,7 @@
 		}
 	}
 	
-	//modifier bilan
+	//supprimer bilan
 	function suppression_bilan($connexion){
 	   if(isset($_POST['nom'])){
 	        $table="bilan_carbone";
