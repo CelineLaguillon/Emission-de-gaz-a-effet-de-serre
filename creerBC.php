@@ -15,7 +15,7 @@
 		<head>
 			<meta charset='UTF-8'>
 			<link rel='stylesheet' href='style.css'/>
-			<form method='post' action='mesBilans.php'>
+			<form method='post' action='voirBC.php'>
 				<input type='submit' id="precedent" name='envoyer' value='Revenir à la page précédente' >
 			</form>
 			
@@ -29,7 +29,7 @@
 				<h1>Créer un bilan</h1>
 				<form method='post'>
 					<label for = "nom">Nom du bilan : </label>
-					<input type='text' name='nom' id='nom'  placeholder='Exemple : Global' size='30' maxlength='10' required>
+					<input type='text' name='nom' id='nom'  placeholder='Exemple : Global' size='30' maxlength='30' required>
 					
 					<label for = "etablissement">Etablissement : </label><br>
 					<select name = 'etablissement'>

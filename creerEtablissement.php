@@ -18,7 +18,7 @@
 				<input type='submit' id="precedent" name='envoyer' value='Revenir à la page précédente' >
 			</form>
 			
-			<form method='post'>
+			<form method='post' action='deconnexion.php'>
 				<input type='submit' id = "deconnexion" name='deconnecter' value='Se deconnecter'>
 			</form>
 		</head>

@@ -3,7 +3,7 @@
 		<meta charset='UTF-8'>
 		<link rel='stylesheet' href='style.css'/>
 		
-		<form method='post' action='accueil.php'>
+		<form method='post' action='voirBC.php'>
 				<input type='submit' id="precedent" name='envoyer' value='Revenir à la page précédente' >
 			</form>
 			

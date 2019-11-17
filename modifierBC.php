@@ -16,6 +16,9 @@
 		<head>
 			<meta charset='UTF-8'>
 			<link rel='stylesheet' href='style.css'/>
+			<form method='post' action='accueil.php'>
+			<input type='submit' name='envoyer' value='Revenir à la page précédente' >
+			</form>
 		</head>
 
 		<body>
@@ -24,7 +27,7 @@
 			<form method='post'>
 			<label for='nom'>Nom du Bilan : </label>
 			<?php
-			$info=bilan_recuperation($connexion,1);
+			$info=bilan_recuperation($connexion,$_GET['bilan']);
 			echo "<input type='text' name='nom' id='nom'  value=$info[0] size='30' maxlength='10' required>";
 			?>
 			<br>
@@ -38,9 +41,7 @@
 			modification_bilan($connexion);
 			mysqli_close($connexion);
 			?>
-			<form method='post' action='accueil.php'>
-			<input type='submit' name='envoyer' value='Revenir à la page précédente' >
-			</form>
+			
 			
 			</div>
 		</body>

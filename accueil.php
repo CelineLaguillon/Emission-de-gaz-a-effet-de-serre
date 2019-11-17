@@ -17,7 +17,7 @@
 		<div id='global'>
 			<h1> Voici les différents choix : </h1>
 			
-			<a href = "mesBilans.php">Mes bilans</a><br><br>
+			<a href = "voirBC.php">Mes bilans</a><br><br>
 			
 			<a href="creerEtablissement.php">Ajouter un établissement</a>
 			
