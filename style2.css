@@ -19,6 +19,10 @@ body
 	margin-left: 21%;
 	text-align : center;
 	float:left;	
+	line-height: 1.5;
+	font-size: 0.85em;
+	font-family: Verdana, sans-serif;
+	text-decoration: none;
 }
 
 #global h1
@@ -65,29 +69,16 @@ input[type="submit"]
 	margin-top:1%;
 }
 
-#deconnexion1
+#icones
 {
-	float:right;
-	margin-right:1%;
-	margin-left:100%;
-	margin-top:0%;
+	display: inline;
+	float: left;
+	padding-left: 0;
 }
 
-#deconnexion
+#deconnexion #deconnexion1
 {
-	float:right;
-	margin-right:1%;
-	margin-left:100%;
-	margin-top:-40px;
-}
-
-#precedent
-{
-	float:left;
-	margin-right:100%;
-	margin-left:1%;
-	margin-top:0%;
-	width:250px;
+	margin-left: 150px;
 }
 
 #enregistrer
@@ -96,14 +87,10 @@ input[type="submit"]
 	width: 245px;
 }
 
-a 
+#global a 
 {
 	float: left;
-	padding-left: 0px;
-	line-height: 1.5;
-	font-size: 0.85em;
-	font-family: Verdana, sans-serif;
-	text-decoration: none;
+	padding-left: 0;
 }
 
 #creer

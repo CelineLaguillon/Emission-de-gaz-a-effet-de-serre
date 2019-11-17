@@ -29,11 +29,11 @@
 					echo "<a href=\"poste.php?bilan=$mesBilans[0]\"><h3>$mesBilans[1]  $mesBilans[2]<h3></a><br>";
 					
 					echo "<a href = 'modifierBC.php?bilan=$mesBilans[0]' id='modifier'>";
-					echo "<img src='Images/modifier.png' width='40' height='40'>";
+					echo "<img src='Images/modifier.png'>";
 					echo "</a>";
 				
 					echo "<a href = 'accueil.php' id='supprimer'>";
-					echo "<img src='Images/supprimer.png' width='40' height='40'>";
+					echo "<img src='Images/supprimer.png'>";
 					echo "</a>";
 				}
 			echo "</div>";

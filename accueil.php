@@ -8,9 +8,10 @@
 	<head>
 		<meta charset='UTF-8'>
 		<link rel='stylesheet' href='style.css'/>
-		<form method='post'>
-			<input type='submit' id = "deconnexion1" name='deconnecter' value='Se deconnecter'>
-		</form>
+			
+		<a href = "deconnexion.php" id = "deconnexion1">
+			<img src="Images/deconnexion.png">
+		</a>
 	</head>
 
 	<body>
@@ -19,7 +20,9 @@
 			
 			<a href = "voirBC.php">Mes bilans</a><br><br>
 			
-			<a href="creerEtablissement.php">Ajouter un établissement</a>
+			<a href="creerEtablissement.php">Ajouter un établissement</a><br><br>
+			
+			<a href="voirPoste.php">Mes postes</a><br><br>
 			
 			<?php
 				if (isset($_POST['deconnecter'])){
