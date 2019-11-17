@@ -32,7 +32,7 @@
 					echo "<img src='Images/modifier.png'>";
 					echo "</a>";
 				
-					echo "<a href = 'accueil.php' id='supprimer'>";
+					echo "<a href = 'supprimer.php?bilan=$mesBilans[0]' id='supprimer'>";
 					echo "<img src='Images/supprimer.png'>";
 					echo "</a>";
 				}
@@ -96,5 +96,16 @@
 				$resultat=mysqli_query($connexion,$requete);
 			}
 		}
+		//supprimer bilan
+		function suppression_bilan($connexion){
+		   if(isset($_GET['bilan'])){
+		        $table="bilan_carbone";
+			    $requete="DELETE FROM $table WHERE id='{$_GET['bilan']}'";
+			    echo $requete;
+			    $resultat=mysqli_query($connexion,$requete);
+				
+		    } 
+		}
+
 	?>
 </html>
