@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<div id='global'>
-			<h1>Nom du bilan sélectionné</h1>
+			<h1>Nom du poste sélectionné</h1>
 			<h2>Catégorie 1</h2>
 			<p>A compléter</p>
 			<h2>Catégorie 2</h2>

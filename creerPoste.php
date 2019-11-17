@@ -12,10 +12,6 @@
 		<a href = "accueil.php" id = "precedent">
 			<img src="Images/precedent.png">
 		</a>
-	
-		<a href = "deconnexion.php" id = "deconnexion">
-			<img src="Images/deconnexion.png">
-		</a>
 	</head>
 
 	<body>
