@@ -104,7 +104,11 @@
 			    echo $requete;
 			    $resultat=mysqli_query($connexion,$requete);
 				
-		    } 
+		    }
+		    
+		    else{
+		        echo "La suppression a échouée";
+		    }
 		}
 
 	?>
