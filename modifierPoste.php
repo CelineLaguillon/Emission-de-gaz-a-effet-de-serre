@@ -23,11 +23,11 @@
 
 		<body>
 			<div id='global'>
-				<h1>Modifier le bilan</h1>
+				<h1>Modifier le poste</h1>
 				<form method='post'>
-					<label for='nom'>Nom du bilan</label>
+					<label for='nom'>Nom du poste</label>
 					<?php
-					$info=bilan_recuperation($connexion,$_GET['bilan']);
+					$info=poste_recuperation($connexion,$_GET['bilan']);
 					echo "<input type='text' name='nom' id='nom'  value=$info[0] size='30' maxlength='10' required>";
 					?>
 					<br>
@@ -35,10 +35,10 @@
 					<?php
 					echo "<input type='text' name='Periode' id='Periode'  value=$info[1] size='30' maxlength='11' required>";
 					?>
-					<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
+					<input type='submit' name='enregistrer' value='Enregistrer ce poste' required>
 				</form>
 				<?php
-					modification_bilan($connexion);
+					modification_poste($connexion);
 					mysqli_close($connexion);
 				?>
 			</div>

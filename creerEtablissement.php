@@ -6,8 +6,9 @@
 			header("Location: formulaire.php");
 	}
 	if(!$connexion=connexion()){
-		die();
+		die();	
 	}
+	
 ?>
 		<head>
 			<meta charset='UTF-8'>
@@ -21,16 +22,22 @@
 				<img src="Images/deconnexion.png">
 			</a>
 		</head>
+
 		<body>
 			<div id='global'>
-				<h1>Vos bilans de gaz à effet de serre</h1>
-				<a href = "creerBC.php" id = "creer">
-					<img src="Images/creer.png">
-				</a>
-				<?php
-					affichage_bilan($connexion);
-					mysqli_close($connexion);
-				?>
+			<h1>Ajouter un établissement</h1>
+			<form method='post' >
+				<label for='nom'>Nom de l'établissement : </label>
+				<input type='text' name='nom' id='nom'  placeholder='Exemple : IUT_VELIZY' size='30' maxlength='10' required>
+				<input type='submit' id = "enregistrer" name='enregistrer' value='Enregistrer cet établissement'>
+			</form>
+			<?php
+			if(isset($_POST['nom']) && $_POST['nom']!=""){
+				ajout_établissement($connexion);
+				mysqli_close($connexion); 
+			}
+			?>
+			
 			</div>
 		</body>
 </html>
