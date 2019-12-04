@@ -10,16 +10,8 @@
 		die();
 	}
 
-	
+	haut_02("voirBC.php");
 ?>
-		<head>
-			<meta charset='UTF-8'>
-			<link rel='stylesheet' href='style.css'/>
-			<a href = "accueil.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		</head>
-
 		<body>
 			<div id='global'>
 				<h1>Créer un bilan</h1>
@@ -38,7 +30,7 @@
 					<label for = "periode">Période</label>
 					<input type='text' name='Periode' id='Periode'  placeholder='Exemple : 2018-2019' size='30' maxlength='11' required>
 					
-					<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
+					<input type='submit' name='enregistrer' value='Enregistrer' required>
 				</form>
 				<?php
 					insertion_bilan($connexion);

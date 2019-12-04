@@ -13,24 +13,24 @@
 	</head>
 	<body>
 		<div id='global'>
-<?php
-	require("fonction.php");
-	session_start();
-	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
-	}
-	if(!$connexion=connexion()){
-		die();	
-			
-	}
-	function ajout_poste($connexion){
-		$tables="POSTE";
-		$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
-		$resultat=mysqli_query($connexion,$requete);
-	}
-	echo "<h1>Les Postes : </h1>";
-	affichage_poste($connexion);
-?>
+			<?php
+				require("fonction.php");
+				session_start();
+				if(!isset($_SESSION["id"])){
+						header("Location: formulaire.php");
+				}
+				if(!$connexion=connexion()){
+					die();	
+						
+				}
+				function ajout_poste($connexion){
+					$tables="POSTE";
+					$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
+					$resultat=mysqli_query($connexion,$requete);
+				}
+				echo "<h1>Les Postes : </h1>";
+				affichage_poste($connexion);
+			?>
 	
 			<h1> Compléter ce court formulaire : </h1>
 					<form method='post'>

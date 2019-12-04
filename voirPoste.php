@@ -1,17 +1,9 @@
 <html>
-	<head>
-		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='style.css'/>
-		<div id = 'icones'>
-			<a href = "accueil.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		
-			<a href = "deconnexion.php" id = "deconnexion">
-				<img src="Images/deconnexion.png">
-			</a>
-		</div>
-	</head>
+	
+	<?php
+		require("fonction.php");
+		haut("accueil.php");
+	?>
 	<body>
 		<div id='global'>
 <?php

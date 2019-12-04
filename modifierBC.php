@@ -11,16 +11,8 @@
 			
 	}
 	
-	
+	haut_02("voirBC.php");
 ?>
-		<head>
-			<meta charset='UTF-8'>
-			<link rel='stylesheet' href='style.css'/>
-			<a href = "voirBC.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		</head>
-
 		<body>
 			<div id='global'>
 				<h1>Modifier le bilan</h1>
@@ -35,7 +27,7 @@
 					<?php
 					echo "<input type='text' name='Periode' id='Periode'  value=$info[1] size='30' maxlength='11' required>";
 					?>
-					<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
+					<input type='submit' name='enregistrer' value='Enregistrer' required>
 				</form>
 				<?php
 					modification_bilan($connexion);

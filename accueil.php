@@ -1,35 +1,53 @@
 <?php
+	require("fonction.php");
+	
 	session_start();
 	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
+			header("Location: index.php");
 	}
 ?>
 <html>
-	<head>
-		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='style.css'/>
-			
-		<a href = "deconnexion.php" id = "deconnexion1">
-			<img src="Images/deconnexion.png">
-		</a>
-	</head>
+	<?php
+		haut_accueil();
+	?>
 
 	<body>
 		<div id='global'>
-			<h1> Voici les différents choix : </h1>
+			<h1>Menu</h1>
 			
-			<a href = "voirBC.php">Mes bilans</a><br><br>
-			
-			<a href="creerEtablissement.php">Ajouter un établissement</a><br><br>
-			
-			<a href="voirPoste.php">Mes postes</a><br><br>
+			<div id = "menu">
+				<table cellspacing = "10" cellpadding = "15">
+					<tr>
+						<td>
+							<a href="voirBC.php">
+								<img src="Images/voirBC.jpg" alt="Voir les bilans"/>
+							</a>
+						</td>
+						
+						<td>
+							<a href="creerEtablissement.php">
+								<img src="Images/etablissement.jpg" alt="Créer un établissement"/>
+							</a>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<a href="voirPoste.php">
+								<!-- Gestion du compte -->
+								<img src="Images/parametres.png" alt="Gestion du compte"/>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
 			
 			<?php
 				if (isset($_POST['deconnecter'])){
 					session_unset();
 					session_destroy();
 				
-					header("Location: formulaire.php");
+					header("Location: index.php");
 				}
 			?>
 		</div>
