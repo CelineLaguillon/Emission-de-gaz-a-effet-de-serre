@@ -10,35 +10,29 @@
 		die();
 	}
 
-	
+	haut_03("voirBC.php");
 ?>
-		<head>
-			<meta charset='UTF-8'>
-			<link rel='stylesheet' href='style.css'/>
-			<a href = "accueil.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		</head>
-
 		<body>
-			<div id='global'>
+			<div id='bilans'>
 				<h1>Créer un bilan</h1>
 				<form method='post'>
 					<label for = "nom">Nom du bilan</label>
-					<input type='text' name='nom' id='nom'  placeholder='Exemple : Global' size='30' maxlength='30' required>
+					<input type='text' name='nom' id='inputBilan'  placeholder='Exemple : Global' size='30' maxlength='30' required>
 					
 					<label for = "etablissement">Etablissement</label><br>
-					<select name = 'etablissement'>
+					<div class='select'>
+					<select name = 'etablissement' id = 'nom_fichier'>
 						<option value="">Choisir un établissement</option>
 						<?php
 							choix_etablissement($connexion);
 						?>
 					</select>
+					</div>
 					<br>
 					<label for = "periode">Période</label>
-					<input type='text' name='Periode' id='Periode'  placeholder='Exemple : 2018-2019' size='30' maxlength='11' required>
+					<input type='text' name='Periode' id='inputBilan'  placeholder='Exemple : 2018-2019' size='30' maxlength='11' required>
 					
-					<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
+					<input type='submit' name='enregistrer' id='inputBilan' value='Enregistrer' required>
 				</form>
 				<?php
 					insertion_bilan($connexion);

@@ -1,27 +1,17 @@
 <html>
-	<head>
-		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='style.css'/>
-		<div id = 'icones'>
-			<a href = "accueil.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		
-			<a href = "deconnexion.php" id = "deconnexion">
-				<img src="Images/deconnexion.png">
-			</a>
-		</div>
-	</head>
+	
+	<?php
+		require("fonction.php");
+		haut("accueil.php");
+	?>
 	<body>
-		<div id='global'>
 <?php
-	require("fonction.php");
 	session_start();
 	if(!isset($_SESSION["id"])){
 			header("Location: formulaire.php");
 	}
 	if(!$connexion=connexion()){
-		die();	
+		die();
 			
 	}
 	function ajout_poste($connexion){
@@ -29,8 +19,6 @@
 		$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
 		$resultat=mysqli_query($connexion,$requete);
 	}
-	echo "<h1>Les Postes : </h1>";
-	affichage_poste($connexion);
 ?>
 	
 	<h1>Mes postes</h1>
@@ -39,13 +27,14 @@
 			<img src="Images/creer.png">
 		</a>
 		<?php
-			affichage_poste($connexion);
+			//affichage_poste($connexion);
 			mysqli_close($connexion);
 		?>
 	</form>
 	
+	<div id="poste">
 	<h2>Catégorie 1</h2>
-	<table border = "1" cellspacing = "10" cellpadding = "10">
+	<table>
 		<tr>
 			<th>Nom</th>
 			<th>Quantité</th>
@@ -149,12 +138,12 @@
 			</td>
 		</tr>
 	</table>
+	</div>
 	
 	<?php
 		if(isset($_POST['nom']) && isset($_POST['enregistrer'])){
 			ajout_poste($connexion);
 		}
 	?>
-		</div>			
 	</body>
 </html>

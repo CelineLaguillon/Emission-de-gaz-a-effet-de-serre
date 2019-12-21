@@ -1,4 +1,5 @@
 <?php
+	require("fonction.php");
 	session_start();
 	if(!isset($_SESSION["id"])){
 			header("Location: formulaire.php");
@@ -6,14 +7,9 @@
 ?>
 
 <html>
-	<head>
-		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='style.css'/>
-		
-		<a href = "accueil.php" id = "precedent">
-			<img src="Images/precedent.png">
-		</a>
-	</head>
+	<?php
+		haut_02("voirPoste.php");
+	?>
 	<body>
 		<div id='global'>
 			<h1>Nom du poste sélectionné</h1>

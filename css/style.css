@@ -1,0 +1,121 @@
+body 
+{
+	padding: auto;
+	margin: auto;
+	background: #B5B5B6;
+	font-family: Garamond, Verdana, sans-serif;
+	font-size: 20px;
+}
+
+/* Titres et label */
+	h1
+	{
+		text-align: center;
+		font-size: 40px;
+		margin: 15px;
+	}
+
+	h2, h3
+	{
+		font-weight: normal;
+		text-align: left;
+		margin: 15px;
+		display: block;
+	}
+	
+	h2
+	{
+		font-size: 30px;
+		margin-top: 55px;
+	}
+
+	h3
+	{
+		font-size: 25px;
+		
+	}
+
+	label
+	{
+		line-height: 35px;
+		padding-bottom: 5px;
+		display: block;
+	}
+	
+/* Input */	
+	input[type="submit"]
+	{
+		padding: 12px 20px;
+		border-radius: 10px;
+		margin-top: 15px;
+		cursor: pointer;
+		color: white;
+		font-weight: bold;
+		border: none;
+		min-width: 300px;
+		max-width: 300px;
+		height:40px;
+		background-color: #1acc75;
+	}
+	
+	input[type="submit"]:hover
+	{
+		background-color: #c7c6c5;
+		color: #1acc75;
+	}
+	
+	input
+	{
+		padding: 12px 20px;
+		border-radius: 10px;
+		margin-top: 15px;
+		border: none;
+		width: 300px;
+		height:40px;
+		display: block;
+	}
+	
+/* Boutons */
+	#enregistrer
+	{
+		float: center;
+		width: 245px;
+	}
+	
+	#boutons
+	{
+		float: left;
+		margin-top: -20px;
+	}
+	
+	.creer
+	{
+		float:right;
+		margin-right: 10px;
+		margin-bottom: 5px;
+		padding-top: 5px;
+	}
+
+/* Icones en haut de la page */
+	#deconnexion
+	{
+		float: right;
+		margin-right: 15px;
+	}
+
+/* Liens */
+	a 
+	{
+		float: left;
+		line-height: 1.5;
+		font-size: 0.85em;
+		font-family: Verdana, sans-serif;
+		text-decoration: none;
+	}
+
+/* Images */
+	img, #ajouter
+	{
+		height: 60;
+		width: 60;
+	}

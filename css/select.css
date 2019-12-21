@@ -1,0 +1,32 @@
+.choix_fichier {
+	position: relative;
+}
+
+.select {
+	position: relative; 
+	background-color: #fff;
+	border: #777 1px solid;
+	max-width: 250px;
+	overflow: hidden;
+	margin-left: 650px;
+}
+
+.select select {
+	-moz-appearance: none;
+	width: 100%; 
+	border: 0; 
+	padding: .75em;
+}
+
+.select::after { 
+	content: '';
+	position: absolute;
+	top: 50%; 
+	margin-top: -3px;
+	right: .75em;  
+	display: block; 
+	border-color: transparent;
+	border-top-color: #444; 
+	border-width: 6px;
+	border-style: solid;
+}

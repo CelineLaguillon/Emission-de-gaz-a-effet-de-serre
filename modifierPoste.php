@@ -1,26 +1,18 @@
 <html>
-<?php
-	require("fonction.php");
-	session_start();
-	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
-	}
+	<?php
+		require("fonction.php");
+		session_start();
+		if(!isset($_SESSION["id"])){
+				header("Location: formulaire.php");
+		}
 
-	if(!$connexion=connexion()){
-		die();	
-			
-	}
-	
-	
-?>
-		<head>
-			<meta charset='UTF-8'>
-			<link rel='stylesheet' href='style.css'/>
-			<a href = "voirBC.php" id = "precedent">
-				<img src="Images/precedent.png">
-			</a>
-		</head>
-
+		if(!$connexion=connexion()){
+			die();	
+				
+		}
+		
+		haut_02("voirPoste.php");
+	?>
 		<body>
 			<div id='global'>
 				<h1>Modifier le poste</h1>
