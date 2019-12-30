@@ -8,10 +8,7 @@
 		<div id='global'>
 <?php
 	require("fonction.php");
-	session_start();
-	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
-	}
+	session_check();
 	if(!$connexion=connexion()){
 		die();	
 			

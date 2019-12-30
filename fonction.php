@@ -14,7 +14,12 @@
 				return $connexion;
 			}
 		}
-		
+		function session_check(){
+			session_start();
+			if(!isset($_SESSION["id"])){
+				header("Location: formulaire.php");
+			}
+		}
 		//voirBC
 		function affichage_bilan($connexion){
 			$tables="liaison";
@@ -63,21 +68,22 @@
 		}
 		//creerbilan
 		function choix_etablissement($connexion){
-			$tables="etablissement";
-			$requete="SELECT nom FROM $tables ";
+			$tables="liaison";
+			$requete="SELECT etablissement FROM $tables ";
 			$resultat=mysqli_query($connexion,$requete);
-			while(!is_null($ligne=mysqli_fetch_row($resultat))){
-				echo "<option value=$ligne[0]>$ligne[0]</option>";
-			}
+			return mysqli_fetch_row($resultat);
 		}
 		function insertion_bilan($connexion){
-			if(isset($_POST['nom']) && $_POST['etablissement']!=""){
+			if(isset($_POST['nom']) && $_POST['nom']!="" ){
 				$tables="bilan_carbone";
-				$requete="INSERT INTO $tables (Nom,Etablissement,Periode) VALUES ('{$_POST['nom']}','{$_POST['etablissement']}','{$_POST['Periode']}') ";
+				$etablissement=choix_etablissement($connexion)[0];
+				$requete="INSERT INTO $tables (Nom,Etablissement,Periode) VALUES ('{$_POST['nom']}','$etablissement','{$_POST['Periode']}') ";
 				$resultat=mysqli_query($connexion,$requete);
 			}
 			else{
-				echo "Il faut choisir un établissement";
+				if(isset($_POST['enregistrer'])){
+					echo "Echec de la création de bilan";
+				}
 			}
 		}
 
@@ -98,9 +104,11 @@
 		//supprimer bilan
 		function suppression_bilan($connexion){
 		   if(isset($_GET['bilan'])){
+		   		$table="poste";
+		   		$requete="DELETE FROM $table WHERE bilan='{$_GET['bilan']}'";
+		   		$resultat=mysqli_query($connexion,$requete); // Vérification à faire
 		        $table="bilan_carbone";
 			    $requete="DELETE FROM $table WHERE id='{$_GET['bilan']}'";
-			    echo $requete;
 			    $resultat=mysqli_query($connexion,$requete);
 		    } 
 		}

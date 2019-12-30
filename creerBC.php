@@ -1,10 +1,7 @@
 <html>
 <?php
 	require("fonction.php");
-	session_start();
-	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
-	}
+	session_check();
 
 	if(!$connexion=connexion()){
 		die();
@@ -18,14 +15,6 @@
 				<form method='post'>
 					<label for = "nom">Nom du bilan</label>
 					<input type='text' name='nom' id='nom'  placeholder='Exemple : Global' size='30' maxlength='30' required>
-					
-					<label for = "etablissement">Etablissement</label><br>
-					<select name = 'etablissement'>
-						<option value="">Choisir un établissement</option>
-						<?php
-							choix_etablissement($connexion);
-						?>
-					</select>
 					<br>
 					<label for = "periode">Période</label>
 					<input type='text' name='Periode' id='Periode'  placeholder='Exemple : 2018-2019' size='30' maxlength='11' required>
