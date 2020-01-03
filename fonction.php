@@ -113,6 +113,22 @@
 		    } 
 		}
 		
+		//gestion du compte
+		function modification_compte($connexion){
+	        if(isset($_POST['login'],$_POST['mdp'])){
+        		$tables="utilisateur";
+        		$requete="UPDATE $tables SET Mdp='{$_POST['mdp']}'where Login='{$_POST['login']}' ";
+        		$resultat=mysqli_query($connexion,$requete);
+	        }
+			
+	        else{
+		        if(isset($_POST['envoyer'])){
+			        echo "Echec de la mise à jour du compte";
+			    }
+		    }
+
+        }
+		
 		function debut_haut(){
 			echo "<head>";
 			echo "<meta charset='UTF-8'>";
