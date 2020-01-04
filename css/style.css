@@ -1,165 +1,114 @@
-html 
+/* Pour les téléphones et les tablettes */
+@media(min-width: 480px) and (max-width: 780px), @media(min-width: 781px) and (max-width: 979px)
 {
-	height: 100%;
-}
-
-body 
-{
-	padding: auto;
-	margin: auto;
-	background: #dedede;
-	font-family: Cambria, sans-serif;
-}
-
-#global
-{
-	min-height: 100%;
-	width: 50%;
-	padding: auto;
-	margin:auto;
-	text-align : center;
-	float:left;	
-	margin-left: 23%;
-}
-
-/* Titres et label */
-	#global h1
+	body 
 	{
-		padding: auto;
-		margin:auto;
-		text-align: center;
-		font-size: 40px;
-		margin-top: 15px;
+		font-size: 14px;
+		margin: 0 auto;
 	}
-
+	
+	h1
+	{
+		font-size: 30px;
+	}
+	
 	h2
 	{
-		margin-right:auto;
-		margin-top: 75px;
-		text-align: left;
-		font-size: 25px;
+		font-size: 20px;
 	}
-
+	
 	h3
 	{
-		margin-left: 10px;
-		margin-top: 10px;
-		font-size: 20px;
-		font-weight: normal;
+		font-size: 15px;
 	}
+}
 
-	#global label
+/* Propriétés générales */
+	body 
 	{
-		line-height: 35px;
-	}
-
-/* Page de connexion */
-	#cadre
-	{
-		text-align: center;
-		border:3px solid green;
-		border-radius: 15px;
-		width:500px;
-		height:300px;
+		padding: auto;
 		margin: auto;
-		margin-top: 20px;
+		background: #B5B5B6;
+		font-family: Garamond, Verdana, sans-serif;
+		font-size: 18px;
 	}
 
+h1
+{
+	text-align: center;
+	font-size: 40px;
+	margin: 15px;
+}
+
+h2, h3
+{
+	font-weight: normal;
+	text-align: left;
+	margin: 15px;
+}
+
+h2
+{
+	font-size: 30px;
+}
+
+h3
+{
+	font-size: 25px;
+	
+}
+
+label
+{
+	line-height: 35px;
+	padding-bottom: 5px;
+	display: block;
+	text-align: center;
+}
+	
+/* Input */	
 	input
 	{
-		width: 450px;
+		width: 100%;
+		max-width: 400px;
 		padding: 12px 20px;
-		margin-top: auto;
 		border-radius: 10px;
+		display: block;
+		text-align: center;
 	}
-
-	#login
-	{
-		margin-top: 15px;
-	}
-
-	#motDePasse
-	{
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-
-/* Boutons */
-
+	
 	input[type="submit"]
 	{
-		font-size:16px;
+		margin-top: 15px;
+		cursor: pointer;
+		color: white;
 		font-weight: bold;
-		color:white;
-		background-color:#1acc75;
-		text-align:center;
-		height:40px;
-		max-width:150px;
-		margin-top:1%;
-		padding-top: 10px;
+		border: none;
+		background-color: #008509;
 	}
-
-	#connexion
+	
+	input[type="submit"]:hover
 	{
-		float:left;
-		margin: auto;
-		margin-top: 20px;
-		margin-left: 37%;
-	}
-
-	#enregistrer
-	{
-		float: center;
-		width: 245px;
+		background-color: #9c9c9c;
+		color: #008509;
 	}
 
 /* Icones en haut de la page */
-	#icones
-	{
-		display: block;
-		margin-top: 10px;
-	}
-
-	#deconnexion_accueil
-	{
-		padding-left: 95%;
-	}
-
-	#precedent
-	{
-		padding-right: 93%;
-		padding-left: 5px;
-	}
-
-/* Boutons de gestion des bilans et des postes */
-	#creer
+	#deconnexion
 	{
 		float: right;
-		margin-right: auto;
-		margin-top: auto;
-	}
-
-	#boutons
-	{
-		float: right;
-		margin-top: -20px;
-	}
-	
-	#modifier
-	{
 		margin-right: 15px;
 	}
 	
-	#bilans
+	#precedent
 	{
-		display: inline;
+		margin-left: 10px;
 	}
 
 /* Liens */
 	a 
 	{
 		float: left;
-		padding-left: 0px;
 		line-height: 1.5;
 		font-size: 0.85em;
 		font-family: Verdana, sans-serif;
@@ -167,38 +116,8 @@ body
 	}
 
 /* Images */
-	#logo_accueil
-	{
-		padding-right: 85%;
-		padding-left: 5px;
-		width: 218;
-		height: 110;
-	}
-
-	#logo
-	{
-		width: 425px;
-		height: 214px;
-		margin-top: 15px;
-	}
-
-	img
+	img, #ajouter
 	{
 		height: 50;
 		width: 50;
 	}
-
-/* Menu de la page d'accueil */
-	#menu img
-	{
-		height: 200;
-		width: 300;
-	}
-
-	#menu
-	{
-		margin-top: 20px;
-		margin-left: 15%;
-	}
-	
-/* Titre des bilans */

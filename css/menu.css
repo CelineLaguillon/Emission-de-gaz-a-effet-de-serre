@@ -1,0 +1,32 @@
+/* Pour les téléphones et les tablettes */
+@media(min-width: 480px) and (max-width: 780px), @media(min-width: 781px) and (max-width: 979px)
+{	
+	.sous-menu
+	{
+		display: none;
+		max-width: 90%;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+#menu
+{
+	text-align: center;
+}
+
+.sous-menu
+{
+	display: inline-block;
+	margin: 15px;
+	padding: 10px;
+	margin-top: 20px;
+	max-width: 100%;
+	height: auto;
+}
+
+.sous-menu img
+{
+	width: 100%;
+	height: auto;
+}

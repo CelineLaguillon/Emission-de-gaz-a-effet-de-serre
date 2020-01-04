@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/style.css"/>
 	</head>
+	
 	<?php
 		require("parametres.php");
 		function sanitizeString($var) {

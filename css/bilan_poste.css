@@ -1,0 +1,62 @@
+/* Voir */
+
+#bilans
+{
+	text-align: center;
+	margin-top: 80px;
+	display: grid;
+}
+
+.nom-bilan
+{
+	margin-left: 20px;
+	float: left;
+	position: relative;
+}
+
+.actions
+{
+	margin-top: 5px;
+}
+
+.action
+{
+	margin-left: 15px;
+}
+
+#titre
+{
+	float: left;
+}
+
+.creer, .actions
+{
+	float: right;
+	margin-right: 15%;
+}
+
+.etablissement
+{
+	float: left;
+}
+
+.etablissement, .creer
+{
+	display: inline;
+}
+
+/* Modifier et créer */
+
+#formulaire
+{
+	text-align: center;
+	width: 60%;
+	max-width: 500px;
+	display: block;
+	margin: auto;
+}
+
+#nom, #periode, #enregistrer
+{
+	display: inline;
+}

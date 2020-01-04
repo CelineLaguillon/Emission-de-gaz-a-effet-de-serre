@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='css/style.css'/>
 	</head>
 
 	<?php
@@ -14,39 +13,55 @@
 				return $connexion;
 			}
 		}
+		
 		function session_check(){
 			session_start();
 			if(!isset($_SESSION["id"])){
 				header("Location: formulaire.php");
 			}
 		}
+		
 		//voirBC
 		function affichage_bilan($connexion){
 			$tables="liaison";
 			$requete="SELECT Etablissement FROM $tables where Utilisateur='{$_SESSION['id']}'";
 			$resultat=mysqli_query($connexion,$requete);
 			while(!is_null($ligne=mysqli_fetch_row($resultat))){
-				echo "<div id='bilan'><h2>$ligne[0]</h2>";
+				echo "
+					<div id = 'titre'>
+						<h2 class='etablissement'>$ligne[0]</h2>
+						<a href = 'creerBC.php' class = 'creer'>
+							<img src='Images/creer.png' alt='Créer un bilan' title='Créer un bilan'>
+						</a>
+					</div>
+					";
 				$tables="bilan_carbone";
 				$requete="SELECT id,nom,Periode FROM $tables where Etablissement='{$ligne[0]}'";
 				$bilan=mysqli_query($connexion,$requete);
 				while(!is_null($mesBilans=mysqli_fetch_row($bilan))) {
-					echo "<a href=\"poste.php?bilan=$mesBilans[0]\"><h3>$mesBilans[1] $mesBilans[2]<h3></a><br>";
+					echo "
+						<div id = 'bilan'>
+							<a class = 'nom-bilan' href='voirPoste.php?bilan=$mesBilans[0]'>
+								<h3>
+									$mesBilans[1] $mesBilans[2]
+								</h3>
+							</a>
 					
-					echo "<div id = 'boutons'>";				
-					echo "<a href = 'modifierBC.php?bilan=$mesBilans[0]' alt = 'Modifier le bilan' id = 'modifier' title = 'Modifier le bilan'>";
-					echo "<img src='Images/modifier.png'>";
-					echo "</a>";
-				
-					echo "<a href = 'supprimer.php?bilan=$mesBilans[0]' alt = 'Supprimer le bilan' id = 'supprimer' title = 'Supprimer le bilan'>";
-					echo "<img src='Images/supprimer.png'>";
-					echo "</a>";
-					echo "</div>";
+							<div class = 'actions'>			
+								<a class = 'action' href = 'modifierBC.php?bilan=$mesBilans[0]' alt = 'Modifier le bilan' id = 'modifier' title = 'Modifier le bilan'>
+									<img src='Images/modifier.png' alt='Modifier le bilan' title='Modifier le bilan'>
+								</a>
+											
+								<a class = 'action' href = 'supprimer.php?bilan=$mesBilans[0]' alt = 'Supprimer le bilan' id = 'supprimer' title = 'Supprimer le bilan'>
+									<img src='Images/supprimer.png' alt='Supprimer le bilan' title='Supprimer le bilan'>
+								</a>
+							</div>
+						</div>";
 				}
-			echo "</div>";
 			}
 		}
-		//poste
+		
+		//voirPoste
 		function affichage_poste($connexion){
 			$tables="poste";
 			$requete="SELECT Nom,Quantite,Facteur FROM $tables where Bilan='{$_GET['bilan']}'";
@@ -55,6 +70,7 @@
 				echo "$mesposte[0] $mesposte[1] $mesposte[2]";
 			}
 		}
+		
 		//creerEtablissement
 		function ajout_établissement($connexion){
 			$tables="etablissement";
@@ -101,7 +117,7 @@
 				$resultat=mysqli_query($connexion,$requete);
 			}
 		}
-		//supprimer bilan
+		
 		function suppression_bilan($connexion){
 		   if(isset($_GET['bilan'])){
 		   		$table="poste";
@@ -113,33 +129,17 @@
 		    } 
 		}
 		
-		//gestion du compte
-		function modification_compte($connexion){
-	        if(isset($_POST['login'],$_POST['mdp'])){
-        		$tables="utilisateur";
-        		$requete="UPDATE $tables SET Mdp='{$_POST['mdp']}'where Login='{$_POST['login']}' ";
-        		$resultat=mysqli_query($connexion,$requete);
-	        }
-			
-	        else{
-		        if(isset($_POST['envoyer'])){
-			        echo "Echec de la mise à jour du compte";
-			    }
-		    }
-
-        }
-		
 		function debut_haut(){
-			echo "<head>";
 			echo "<meta charset='UTF-8'>";
 			echo "<link rel='stylesheet' href='css/style.css'/>";
-			echo "<title>Bilan d'émission carbone</title>";
+			echo "<link rel='stylesheet' href='css/tableau.css'/>";
+			echo "<link rel='stylesheet' href='css/menu.css'/>";
+			echo "<link rel='stylesheet' href='css/bilan_poste.css'/>";
 			echo "<div id = 'icones'>";
 		}
 		
 		function fin_haut(){
 			echo "</div>";
-			echo "</head>";
 		}
 		
 		function haut($ref){
@@ -147,8 +147,8 @@
 			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
 			echo "<img src='Images/precedent.png'>";
 			echo "</a>";
-			echo "<a href = 'deconnexion.php' id = 'deconnexion' title = 'Déconnexion'>";
-			echo "<img src='Images/deconnexion.png'>";
+			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
+			echo "<img src='Images/deconnexion.png'></a>";
 			echo "</a>";
 			fin_haut();
 		}
@@ -163,8 +163,7 @@
 		
 		function haut_accueil(){
 			debut_haut();
-			// echo "<img src = 'Images/Logo.png' id = 'logo_accueil'";
-			echo "<a href = 'deconnexion.php' id = 'deconnexion_accueil' title = 'Déconnexion'>";
+			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
 			echo "<img src='Images/deconnexion.png'>";
 			echo "</a>";
 			fin_haut();

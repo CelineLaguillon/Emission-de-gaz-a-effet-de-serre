@@ -2,11 +2,18 @@
 	<?php
 		require("fonction.php");
 		session_check();
-		
-		haut_02("voirPoste.php");
 	?>
+	
+	<head>
+		<?php
+			haut_02("voirPoste.php");
+		?>
+		<title>
+			Créer un poste
+		</title>
+	</head>
+	
 	<body>
-		<div id='global'>
 		<h1>Créer un poste</h1>
 		<form method='post' action='accueil.php'>
 		<label for = "nom">Nom</label><br>
@@ -26,6 +33,5 @@
 		
 		<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
 		</form>
-		</div>
 	</body>
 </html>
