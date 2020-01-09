@@ -19,7 +19,6 @@
 {
 	display: inline-block;
 	margin: 15px;
-	padding: 10px;
 	margin-top: 20px;
 	max-width: 100%;
 	height: auto;
@@ -29,4 +28,5 @@
 {
 	width: 100%;
 	height: auto;
+	box-shadow: 15px 15px 10px #646464;
 }

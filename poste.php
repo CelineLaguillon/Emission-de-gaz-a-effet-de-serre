@@ -8,7 +8,7 @@
 			</form>
 			
 			<form method='post'>
-				<input type='submit' id = "deconnexion" name='deconnecter' value='Se deconnecter' required>
+				<input type='submit' class = "deconnexion" name='deconnecter' value='Se deconnecter' required>
 			</form>
 	</head>
 	<body>

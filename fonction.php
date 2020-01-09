@@ -17,7 +17,7 @@
 		function session_check(){
 			session_start();
 			if(!isset($_SESSION["id"])){
-				header("Location: formulaire.php");
+				header("Location: index.php");
 			}
 		}
 		
@@ -127,46 +127,6 @@
 			    $requete="DELETE FROM $table WHERE id='{$_GET['bilan']}'";
 			    $resultat=mysqli_query($connexion,$requete);
 		    } 
-		}
-		
-		function debut_haut(){
-			echo "<meta charset='UTF-8'>";
-			echo "<link rel='stylesheet' href='css/style.css'/>";
-			echo "<link rel='stylesheet' href='css/tableau.css'/>";
-			echo "<link rel='stylesheet' href='css/menu.css'/>";
-			echo "<link rel='stylesheet' href='css/bilan_poste.css'/>";
-			echo "<div id = 'icones'>";
-		}
-		
-		function fin_haut(){
-			echo "</div>";
-		}
-		
-		function haut($ref){
-			debut_haut();
-			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
-			echo "<img src='Images/precedent.png'>";
-			echo "</a>";
-			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
-			echo "<img src='Images/deconnexion.png'></a>";
-			echo "</a>";
-			fin_haut();
-		}
-		
-		function haut_02($ref){
-			debut_haut();
-			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
-			echo "<img src='Images/precedent.png'>";
-			echo "</a>";
-			fin_haut();
-		}
-		
-		function haut_accueil(){
-			debut_haut();
-			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
-			echo "<img src='Images/deconnexion.png'>";
-			echo "</a>";
-			fin_haut();
 		}
 	?>
 </html>

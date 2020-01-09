@@ -1,4 +1,9 @@
-/* Voir */
+/* Bilan : voir */
+
+#bilan
+{
+	margin-top: 20px;
+}
 
 #bilans
 {
@@ -27,12 +32,14 @@
 #titre
 {
 	float: left;
+	background-color: #5e5e5e;
+	color: white;
 }
 
 .creer, .actions
 {
 	float: right;
-	margin-right: 15%;
+	margin-right: 15px;
 }
 
 .etablissement
@@ -45,18 +52,38 @@
 	display: inline;
 }
 
+.creer
+{
+	padding-top: 8px;
+}
+
+/* Poste : voir */
+
+.titrePoste
+{
+	text-align: center;
+}
+
 /* Modifier et créer */
 
-#formulaire
+.formulaire, .supprimer
 {
 	text-align: center;
 	width: 60%;
 	max-width: 500px;
 	display: block;
 	margin: auto;
+	padding: 10px;
+	
 }
 
-#nom, #periode, #enregistrer
+.formulaire
+{
+	background-color: #8e8e8d;
+	box-shadow: 15px 15px 5px #646464;
+}
+
+.nom, .periode, .enregistrer
 {
 	display: inline;
 }

@@ -3,7 +3,7 @@
 {
 	table, thead, tbody, th, td, tr
 	{ 
-		display: block;		
+		display: block;
 	}
 	
 	thead tr
@@ -35,40 +35,6 @@
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-	
-	td.supprimer, th.supprimer
-	{
-		display: none;
-	}
-	
-	th.titre_table
-	{
-		display: none;
-	}
-	
-	#affichage td:nth-of-type(1):before {
-		content: "Date";
-	}
-	
-	#affichage td:nth-of-type(2):before {
-		content: "Ouverture";
-	}
-	
-	#affichage td:nth-of-type(3):before {
-		content: "Min";
-	}
-	
-	#affichage td:nth-of-type(4):before {
-		content: "Max";
-	}
-	
-	#affichage td:nth-of-type(5):before {
-		content: "Cloture";
-	}
-	
-	#affichage td:nth-of-type(6):before {
-		content: "Volume";
-	}
 }
 
 table 
@@ -77,6 +43,8 @@ table
 	border: 3px solid rgb(150,150,150);
 	letter-spacing: 1px;
 	font-size: 20px;
+	margin: auto;
+	/* width: 90%; */
 }
 
 td, th 
@@ -110,4 +78,9 @@ tr:nth-child(odd) td
 #tableau
 {
 	overflow-x: auto;
+}
+
+#modifierPoste, #supprimerPoste
+{
+	display: contents;
 }

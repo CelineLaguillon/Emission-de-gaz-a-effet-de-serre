@@ -8,13 +8,23 @@
 ?>
 <html>
 	<head>
-		<?php
-			haut_accueil();
-		?>
+		<meta charset='UTF-8'>
+				
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/menu.css">
+		
 		<title>
 			Accueil
 		</title>
 	</head>
+	
+	<header>
+		<div class = "icones">	
+			<a class = "deconnexion" onclick = "return confirm('Souhaitez-vous quitter votre session ?');" href = "deconnexion.php">
+				<img src = "Images/deconnexion.png" title = "Déconnexion" alt = "Déconnexion">
+			</a>
+		</div>
+	</header>
 
 	<body>
 		<h1>Accueil</h1>
