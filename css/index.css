@@ -1,10 +1,10 @@
 #accueil
 {
 	text-align: center;
-	width: 60%;
 	max-width: 500px;
 	display: block;
 	margin: auto;
+	padding: 5px;
 	color: white;
 }
 
@@ -24,6 +24,8 @@
 	max-width: 500;
 	height: auto;
 	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: 15px 15px 10px #646464;
 }
 
 #login, #mdp

@@ -12,7 +12,7 @@
 
 	<body>
 		<div id = "accueil">
-			<img id = "logo_accueil" src = "Images/Logo.png" alt = "Logo de l'IUT de Vélizy-Villacoublay" title = "IUT de Vélizy"/><br>	
+			<img id = "logo_accueil" src = "Images/Logo.png" alt = "Logo de l'IUT de Vélizy-Villacoublay" title = "IUT de Vélizy"/>	
 			<div id = "cadre">	
 				<form method="post" action="action.php">
 					<?php
