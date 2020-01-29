@@ -28,7 +28,7 @@
 			$resultat=mysqli_query($connexion,$requete);
 			while(!is_null($ligne=mysqli_fetch_row($resultat))){
 				echo "
-					<div id = 'titre'>
+					<div class = 'titre'>
 						<h2 class = 'etablissement'>$ligne[0]</h2>
 						<a class = 'creer' onclick = 'creerBilan()'>
 							<img src='Images/creer.png' alt='Créer un bilan' title='Créer un bilan'>
@@ -40,7 +40,7 @@
 				$bilan=mysqli_query($connexion,$requete);
 				while(!is_null($mesBilans=mysqli_fetch_row($bilan))) {
 					echo "
-						<div id = 'bilan'>
+						<div class = 'bilan'>
 							<a class = 'nom-bilan' href='voirPoste.php?bilan=$mesBilans[0]'>
 								<h3>
 									$mesBilans[1] $mesBilans[2]
@@ -80,7 +80,7 @@
 			$requete="INSERT INTO $tables VALUES('{$_SESSION['id']}','{$_POST['nom']}')"; 
 			// doit ajouter la possibilité de lier un utilisateur à un établissement déja existant.
 			$resultat=mysqli_query($connexion,$requete);
-			echo "Action réussie"; // Faire des vrai vérifications, avertir si echec
+			echo "Action réussie"; // Faire des vraies vérifications, avertir si echec
 		}
 		//creerbilan
 		function choix_etablissement($connexion){
@@ -135,7 +135,7 @@
 					<ul id = 'menu1'>					
 						<li>
 							<a href = 'http://www.iut-velizy-rambouillet.uvsq.fr/' title = \"Lien vers le site de l'IUT de Vélizy\">
-								IUT de Vélizy
+								<img class = 'logo_IUT' src = 'Images/Logo.png' alt = \"Logo de l'IUT de Vélizy\">
 							</a>
 						</li>
 					</ul>
@@ -155,7 +155,7 @@
 						
 						<li class = 'droite'>
 							<a class = 'deconnexion' onclick = \"return confirm('Souhaitez-vous quitter votre session ?');\" href = 'deconnexion.php'>
-								Déconnexion
+								<img class = 'icone_deconnexion' src = 'Images/deconnexion.png' alt = 'Déconnexion' title = 'Déconnexion'>
 							</a>
 						</li>
 					</ul>

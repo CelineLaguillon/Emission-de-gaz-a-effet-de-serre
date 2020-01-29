@@ -28,7 +28,9 @@
 	</header>
 	
 	<body>
-		<h1>Vos bilans de gaz à effet de serre</h1>
+		<h1>
+			Mes bilans de gaz à effets de serre
+		</h1>
 		
 		<div id = "afficherBC">
 			<?php
@@ -38,6 +40,7 @@
 		
 		<div id = "modifierBilan">
 			<h1>Modifier le bilan</h1>
+			
 		
 			<div class = "formulaire">
 				<form method = 'post'>
@@ -45,12 +48,12 @@
 					<?php
 					// $info = bilan_recuperation($connexion, $_GET['bilan']);
 					$info = 0;
-					echo "<input type='text' name='nom' id='nom'  value=$info[0] size='30' maxlength='10' required>";
+					echo "<input type='text' name='nom' id='nom'  value='$info[0]' size='30' maxlength='10' required>";
 					?>
 					<br>
 					<label for = "periode">Période</label>
 					<?php
-					echo "<input type='text' name='periode' id='periode'  value=$info[1] size='30' maxlength='11' required>";
+					echo "<input type='text' name='periode' id='periode'  value='$info[1]' size='30' maxlength='11' required>";
 					?>
 					<input type='submit' class = "enregistrer" name='enregistrer' value='Enregistrer' required>
 				</form>

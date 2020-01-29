@@ -1,9 +1,32 @@
-/* Bilan : voir */
-
-#bilan
+#afficherBC
 {
-	margin-top: 20px;
+	width: 100%;
+	text-align: center;
 }
+
+#afficherBC, #creerBilan
+{
+	display: inline-grid;
+}
+
+#afficherBC, #modifierBilan
+{
+	display: inline-grid;
+}
+
+#creerBilan, #modifierBilan
+{
+	display: none;
+	border-left: solid 2px grey;
+	padding-bottom: 20px;
+}
+
+#creerBilan h1, #modifierBilan h1
+{
+	padding-top: 0;
+}
+
+/* Bilan : voir */
 
 .nom-bilan
 {
@@ -13,33 +36,22 @@
 	color: black;
 }
 
-.nom-bilan:link {
-    text-decoration: none;
-}
-
-.nom-bilan:visited {
-    text-decoration: none;
-}
-
 .nom-bilan:hover {
     text-decoration: underline 2px;
 	color: #0657b1;
 }
 
-.actions
-{
-	margin-top: 5px;
-}
-
 .action
 {
 	margin-left: 15px;
+	margin-top: 10px;
 }
 
-#titre
+.titre
 {
 	float: left;
-	background-color: #a5a5a5;
+	margin-top: 15px;
+	background-color: #929292;
 	color: white;
 	width: 100%;
 }
@@ -63,6 +75,14 @@
 .creer
 {
 	padding-top: 8px;
+}
+
+/* Images */
+
+.creer, .actions img
+{
+	height: 50;
+	width: 50;
 }
 
 /* Poste : voir */
@@ -94,31 +114,4 @@
 .nom, .periode, .enregistrer
 {
 	display: inline;
-}
-
-#afficherBC
-{
-	width: 100%;
-	text-align: center;
-	border-right: 2px solid black;
-}
-
-#afficherBC, #creerBilan
-{
-	display: inline-grid;
-}
-
-#afficherBC, #modifierBilan
-{
-	display: inline-grid;
-}
-
-#creerBilan, #modifierBilan
-{
-	display: none;
-}
-
-#creerBilan h1, #modifierBilan h1
-{
-	padding-top: 0;
 }
