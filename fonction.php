@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<meta charset='UTF-8'>
-		<link rel='stylesheet' href='css/style.css'/>
 	</head>
 
 	<?php
@@ -15,33 +14,54 @@
 			}
 		}
 		
+		function session_check(){
+			session_start();
+			if(!isset($_SESSION["id"])){
+				header("Location: index.php");
+			}
+		}
+		
 		//voirBC
 		function affichage_bilan($connexion){
 			$tables="liaison";
 			$requete="SELECT Etablissement FROM $tables where Utilisateur='{$_SESSION['id']}'";
 			$resultat=mysqli_query($connexion,$requete);
 			while(!is_null($ligne=mysqli_fetch_row($resultat))){
-				echo "<div id='bilan'><h2>$ligne[0]</h2>";
+				echo "
+					<div id = 'titre'>
+						<h2 class = 'etablissement'>$ligne[0]</h2>
+						<a class = 'creer' onclick = 'creerBilan()'>
+							<img src='Images/creer.png' alt='Créer un bilan' title='Créer un bilan'>
+						</a>
+					</div>
+					";
 				$tables="bilan_carbone";
 				$requete="SELECT id,nom,Periode FROM $tables where Etablissement='{$ligne[0]}'";
 				$bilan=mysqli_query($connexion,$requete);
 				while(!is_null($mesBilans=mysqli_fetch_row($bilan))) {
-					echo "<a href=\"voirPoste.php?bilan=$mesBilans[0]\"><h3>$mesBilans[1] $mesBilans[2]<h3></a><br>";
+					echo "
+						<div id = 'bilan'>
+							<a class = 'nom-bilan' href='voirPoste.php?bilan=$mesBilans[0]'>
+								<h3>
+									$mesBilans[1] $mesBilans[2]
+								</h3>
+							</a>
 					
-					echo "<div id = 'boutons'>";				
-					echo "<a href = 'modifierBC.php?bilan=$mesBilans[0]' alt = 'Modifier le bilan' id = 'modifier' title = 'Modifier le bilan'>";
-					echo "<img src='Images/modifier.png'>";
-					echo "</a>";
-				
-					echo "<a href = 'supprimer.php?bilan=$mesBilans[0]' alt = 'Supprimer le bilan' id = 'supprimer' title = 'Supprimer le bilan'>";
-					echo "<img src='Images/supprimer.png'>";
-					echo "</a>";
-					echo "</div>";
+							<div class = 'actions'>			
+								<a class = 'action' onclick = 'modifierBC($mesBilans[0])' alt = 'Modifier le bilan' id = 'modifier' title = 'Modifier le bilan'>
+									<img src='Images/modifier.png' alt='Modifier le bilan' title='Modifier le bilan'>
+								</a>
+											
+								<a class = 'action' href = 'supprimer.php?bilan=$mesBilans[0]' alt = 'Supprimer le bilan' id = 'supprimer' title = 'Supprimer le bilan'>
+									<img src='Images/supprimer.png' alt='Supprimer le bilan' title='Supprimer le bilan'>
+								</a>
+							</div>
+						</div>";
 				}
-			echo "</div>";
 			}
 		}
-		//poste
+		
+		//voirPoste
 		function affichage_poste($connexion){
 			$tables="poste";
 			$requete="SELECT Nom,Quantite,Facteur FROM $tables where Bilan='{$_GET['bilan']}'";
@@ -50,6 +70,7 @@
 				echo "$mesposte[0] $mesposte[1] $mesposte[2]";
 			}
 		}
+		
 		//creerEtablissement
 		function ajout_établissement($connexion){
 			$tables="etablissement";
@@ -63,21 +84,22 @@
 		}
 		//creerbilan
 		function choix_etablissement($connexion){
-			$tables="etablissement";
-			$requete="SELECT nom FROM $tables ";
+			$tables="liaison";
+			$requete="SELECT etablissement FROM $tables ";
 			$resultat=mysqli_query($connexion,$requete);
-			while(!is_null($ligne=mysqli_fetch_row($resultat))){
-				echo "<option value=$ligne[0]>$ligne[0]</option>";
-			}
+			return mysqli_fetch_row($resultat);
 		}
 		function insertion_bilan($connexion){
-			if(isset($_POST['nom']) && $_POST['etablissement']!=""){
+			if(isset($_POST['nom']) && $_POST['nom']!="" ){
 				$tables="bilan_carbone";
-				$requete="INSERT INTO $tables (Nom,Etablissement,Periode) VALUES ('{$_POST['nom']}','{$_POST['etablissement']}','{$_POST['Periode']}') ";
+				$etablissement=choix_etablissement($connexion)[0];
+				$requete="INSERT INTO $tables (Nom,Etablissement,Periode) VALUES ('{$_POST['nom']}','$etablissement','{$_POST['periode']}') ";
 				$resultat=mysqli_query($connexion,$requete);
 			}
 			else{
-				echo "Il faut choisir un établissement";
+				if(isset($_POST['enregistrer'])){
+					echo "Echec de la création de bilan";
+				}
 			}
 		}
 
@@ -95,77 +117,49 @@
 				$resultat=mysqli_query($connexion,$requete);
 			}
 		}
-		//supprimer bilan
+		
 		function suppression_bilan($connexion){
 		   if(isset($_GET['bilan'])){
+		   		$table="poste";
+		   		$requete="DELETE FROM $table WHERE bilan='{$_GET['bilan']}'";
+		   		$resultat=mysqli_query($connexion,$requete); // Vérification à faire
 		        $table="bilan_carbone";
 			    $requete="DELETE FROM $table WHERE id='{$_GET['bilan']}'";
-			    echo $requete;
 			    $resultat=mysqli_query($connexion,$requete);
 		    } 
 		}
 		
-		function debut_haut(){
-			echo "<head>";
-			echo "<meta charset='UTF-8'>";
-			echo "<link rel='stylesheet' href='css/style.css'/>";
-			echo "<link rel='stylesheet' href='css/groupes.css'/>";
-			echo "<link rel='stylesheet' href='css/tableau.css'/>";
+		function navigation(){
+			echo "
+				<nav> 
+					<ul id = 'menu1'>					
+						<li>
+							<a href = 'http://www.iut-velizy-rambouillet.uvsq.fr/' title = \"Lien vers le site de l'IUT de Vélizy\">
+								IUT de Vélizy
+							</a>
+						</li>
+					</ul>
+						
+					<ul id = 'menu2'>
+						<li class = 'droite'>
+							<a href = 'voirBC.php'>
+								Mes bilans
+							</a>
+						</li>
 
-			echo "<title>Bilan d'émission carbone</title>";
-			echo "<div id = 'icones'>";
-		}
-		
-		function debut_haut_02(){
-			echo "<head>";
-			echo "<meta charset='UTF-8'>";
-			echo "<link rel='stylesheet' href='css/style.css'/>";
-			echo "<link rel='stylesheet' href='css/groupes.css'/>";
-			echo "<link rel='stylesheet' href='css/tableau.css'/>";
-			echo "<link rel='stylesheet' href='css/select.css'/>";
-
-			echo "<title>Bilan d'émission carbone</title>";
-			echo "<div id = 'icones'>";
-		}
-		
-		function fin_haut(){
-			echo "</div>";
-			echo "</head>";
-		}
-		
-		function haut($ref){
-			debut_haut();
-			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
-			echo "<img src='Images/precedent.png'>";
-			echo "</a>";
-			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
-			echo "<img src='Images/deconnexion.png'>";
-			echo "</a>";
-			fin_haut();
-		}
-		
-		function haut_02($ref){
-			debut_haut();
-			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
-			echo "<img src='Images/precedent.png'>";
-			echo "</a>";
-			fin_haut();
-		}
-		
-		function haut_03($ref){
-			debut_haut_02();
-			echo "<a href =".$ref." id = 'precedent' title = 'Retour à la page précédente'>";
-			echo "<img src='Images/precedent.png'>";
-			echo "</a>";
-			fin_haut();
-		}
-		
-		function haut_accueil(){
-			debut_haut();
-			echo "<a id = 'deconnexion' alt = 'Déconnexion' title = 'Déconnexion' onclick=\"return confirm('Souhaitez-vous quitter votre session ?');\" href='deconnexion.php'>";
-			echo "<img src='Images/deconnexion.png'>";
-			echo "</a>";
-			fin_haut();
+						<li class = 'droite'>
+							<a href = 'gestionDuCompte.php'>
+								Gestion du compte
+							</a>
+						</li>
+						
+						<li class = 'droite'>
+							<a class = 'deconnexion' onclick = \"return confirm('Souhaitez-vous quitter votre session ?');\" href = 'deconnexion.php'>
+								Déconnexion
+							</a>
+						</li>
+					</ul>
+				</nav>";
 		}
 	?>
 </html>

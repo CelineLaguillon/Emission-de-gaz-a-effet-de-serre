@@ -1,0 +1,124 @@
+/* Bilan : voir */
+
+#bilan
+{
+	margin-top: 20px;
+}
+
+.nom-bilan
+{
+	margin-left: 20px;
+	float: left;
+	position: relative;
+	color: black;
+}
+
+.nom-bilan:link {
+    text-decoration: none;
+}
+
+.nom-bilan:visited {
+    text-decoration: none;
+}
+
+.nom-bilan:hover {
+    text-decoration: underline 2px;
+	color: #0657b1;
+}
+
+.actions
+{
+	margin-top: 5px;
+}
+
+.action
+{
+	margin-left: 15px;
+}
+
+#titre
+{
+	float: left;
+	background-color: #a5a5a5;
+	color: white;
+	width: 100%;
+}
+
+.creer, .actions
+{
+	float: right;
+	margin-right: 15px;
+}
+
+.etablissement
+{
+	float: left;
+}
+
+.etablissement, .creer
+{
+	display: inline;
+}
+
+.creer
+{
+	padding-top: 8px;
+}
+
+/* Poste : voir */
+
+.titrePoste
+{
+	text-align: center;
+}
+
+/* Modifier et créer */
+
+.formulaire, .supprimer
+{
+	text-align: center;
+	width: 60%;
+	max-width: 500px;
+	display: block;
+	margin: auto;
+	padding: 10px;
+	
+}
+
+.formulaire
+{
+	background-color: #c1c1c1;
+	box-shadow: 15px 15px 5px #646464;
+}
+
+.nom, .periode, .enregistrer
+{
+	display: inline;
+}
+
+#afficherBC
+{
+	width: 100%;
+	text-align: center;
+	border-right: 2px solid black;
+}
+
+#afficherBC, #creerBilan
+{
+	display: inline-grid;
+}
+
+#afficherBC, #modifierBilan
+{
+	display: inline-grid;
+}
+
+#creerBilan, #modifierBilan
+{
+	display: none;
+}
+
+#creerBilan h1, #modifierBilan h1
+{
+	padding-top: 0;
+}

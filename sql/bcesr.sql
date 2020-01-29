@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 01 nov. 2019 à 19:21
+-- Généré le :  lun. 30 déc. 2019 à 15:25
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.1.32
 
@@ -40,7 +40,7 @@ CREATE TABLE `bilan_carbone` (
 --
 
 INSERT INTO `bilan_carbone` (`Id`, `Nom`, `Etablissement`, `Periode`) VALUES
-(1, 'global', 'IUT_VELIZY', '2018-2019');
+(7, 'Global', 'IUT_VELIZY', '2018-2019');
 
 -- --------------------------------------------------------
 
@@ -76,8 +76,7 @@ CREATE TABLE `liaison` (
 --
 
 INSERT INTO `liaison` (`Utilisateur`, `Etablissement`) VALUES
-('user', 'IUT_VELIZY'),
-('user', 'IUT_ORSAY');
+('user', 'IUT_VELIZY');
 
 -- --------------------------------------------------------
 
@@ -88,16 +87,20 @@ INSERT INTO `liaison` (`Utilisateur`, `Etablissement`) VALUES
 CREATE TABLE `poste` (
   `Nom` varchar(20) NOT NULL,
   `Bilan` int(11) NOT NULL,
-  `Quantite` int(11) NOT NULL,
-  `Facteur` float NOT NULL
+  `Quantite` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `poste`
+-- Structure de la table `poste_info`
 --
 
-INSERT INTO `poste` (`Nom`, `Bilan`, `Quantite`, `Facteur`) VALUES
-('Electricité', 1, 1100, 1.2);
+CREATE TABLE `poste_info` (
+  `Nom` varchar(30) NOT NULL,
+  `Facteur` int(11) NOT NULL,
+  `Unite` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -139,8 +142,8 @@ ALTER TABLE `etablissement`
 -- Index pour la table `liaison`
 --
 ALTER TABLE `liaison`
-  ADD KEY `Etablissement` (`Etablissement`),
-  ADD KEY `Utilisateur` (`Utilisateur`);
+  ADD UNIQUE KEY `Utilisateur` (`Utilisateur`),
+  ADD UNIQUE KEY `Etablissement` (`Etablissement`);
 
 --
 -- Index pour la table `poste`
@@ -148,6 +151,12 @@ ALTER TABLE `liaison`
 ALTER TABLE `poste`
   ADD UNIQUE KEY `Nom` (`Nom`),
   ADD KEY `Bilan` (`Bilan`);
+
+--
+-- Index pour la table `poste_info`
+--
+ALTER TABLE `poste_info`
+  ADD PRIMARY KEY (`Nom`);
 
 --
 -- Index pour la table `utilisateur`
@@ -163,7 +172,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `bilan_carbone`
 --
 ALTER TABLE `bilan_carbone`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Contraintes pour les tables déchargées
