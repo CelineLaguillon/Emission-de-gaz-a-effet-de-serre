@@ -28,7 +28,6 @@
 	{
 		padding: auto;
 		margin: 0 auto;
-		/* background: #B5B5B6; */
 		background: #FFFFFF;
 		font-family: Garamond, Verdana, sans-serif;
 		font-size: 18px;
@@ -65,7 +64,7 @@ label
 	line-height: 35px;
 	padding-bottom: 5px;
 	display: block;
-	text-align: left;
+	text-align: center;
 }
 	
 /* Input */	
@@ -157,6 +156,11 @@ nav a
 nav a:hover
 {
 	color: #a7a7a7;
+}
+
+.texte:hover
+{
+	border-bottom: 2px solid;
 }
 
 .icone_deconnexion

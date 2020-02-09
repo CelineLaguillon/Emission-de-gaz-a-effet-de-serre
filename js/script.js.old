@@ -1,5 +1,6 @@
 function creerBilan(){
 	document.getElementById('modifierBilan').style.display = "none";
+	document.getElementById('titreBilan').style.color = "black";
 	document.getElementById('creerBilan').style.display = "inline-grid";
 	document.getElementById('creerBilan').style.width = "30%";
 	document.getElementById('afficherBC').style.width = "65%";
