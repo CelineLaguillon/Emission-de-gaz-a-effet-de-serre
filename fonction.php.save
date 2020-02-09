@@ -97,8 +97,9 @@
 		function choix_etablissement($connexion){
 			$tables="liaison";
 			$requete="SELECT etablissement FROM $tables WHERE Utilisateur='{$_SESSION['id']}'";
-			$resultat=mysqli_query($connexion,$requete);
-			return mysqli_fetch_row($resultat);
+			header("Location:lieu.php?test=$requete");
+			query($connexion,$requete);
+			//return mysqli_fetch_row($resultat);
 		}
 		function insertion_bilan($connexion){
 			if(isset($_POST['nom']) && $_POST['nom']!="" ){
@@ -107,7 +108,8 @@
 				$nom=$_POST['nom'];
 				$periode=$_POST['periode'];
 				$requete="INSERT INTO $tables (Nom,Etablissement,Periode) VALUES ('{$nom}','{$etablissement}','{$periode}') ";
-				$resultat=mysqli_query($connexion,$requete);
+				//header("Location:test.php?test=$requete");
+				//$resultat=mysqli_query($connexion,$requete);
 			}
 			else{
 				if(isset($_POST['enregistrer'])){

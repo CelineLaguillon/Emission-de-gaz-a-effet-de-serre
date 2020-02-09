@@ -1,5 +1,6 @@
 function creerBilan(){
 	document.getElementById('modifierBilan').style.display = "none";
+	document.getElementById('titreBilan').style.color = "black";
 	document.getElementById('creerBilan').style.display = "inline-grid";
 	document.getElementById('creerBilan').style.width = "30%";
 	document.getElementById('afficherBC').style.width = "65%";
@@ -19,12 +20,7 @@ function modifierBC(bilan){
 	var new_url=url.toString();
 	console.log(new_url);
 	window.history.replaceState(null,null,new_url);
-}
 
-function fermerFenetre(){
-	document.getElementById('creerBilan').style.display = "none";
-	document.getElementById('modifierBilan').style.display = "none";
-	document.getElementById('afficherBC').style.width = "100%";
 }
 
 

@@ -36,7 +36,8 @@
 	color: black;
 }
 
-.nom-bilan:hover {
+.nom-bilan:hover 
+{
     text-decoration: underline 2px;
 	color: #0657b1;
 }
@@ -79,7 +80,7 @@
 
 /* Images */
 
-.creer, .actions img
+.creer, .actions img, .supprimer img
 {
 	height: 50;
 	width: 50;
