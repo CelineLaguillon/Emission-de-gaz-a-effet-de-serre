@@ -13,10 +13,10 @@ function modifierBC(bilan){
 	document.getElementById('titreBilan').style.color = "red";
 	var url=new URL('http://localhost/voirBC.php');
 	var query_strings = url.search;
-	var search_params= new URLSearchParams(query_strings);
+	var search_params = new URLSearchParams(query_strings);
 	search_params.append('bilan',bilan);
 	url.search = search_params.toString();
-	var new_url=url.toString();
+	var new_url = url.toString();
 	console.log(new_url);
 	window.history.replaceState(null,null,new_url);
 }
@@ -26,5 +26,3 @@ function fermerFenetre(){
 	document.getElementById('modifierBilan').style.display = "none";
 	document.getElementById('afficherBC').style.width = "100%";
 }
-
-
