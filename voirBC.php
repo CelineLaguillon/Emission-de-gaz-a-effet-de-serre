@@ -39,9 +39,10 @@
 		</div>
 		
 		<div id = "modifierBilan">
-			<h1>Modifier le bilan</h1>
-			
-		
+			<a class = 'fermer' onclick = 'fermerFenetre()'>
+				Fermer
+			</a>
+			<h1>Modifier le bilan</h1>		
 			<div class = "formulaire">
 				<form method = 'post'>
 					<label for = "nom">Nom du bilan</label>
@@ -66,6 +67,9 @@
 		</div>
 		
 		<div id = "creerBilan">
+			<a class = 'fermer' onclick = 'fermerFenetre()'>
+				Fermer
+			</a>
 			<h1>Créer un bilan</h1>
 			<div class='formulaire'>
 				<form method='post'>

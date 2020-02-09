@@ -142,13 +142,13 @@
 						
 					<ul id = 'menu2'>
 						<li class = 'droite'>
-							<a href = 'voirBC.php'>
+							<a class = 'texte' href = 'voirBC.php'>
 								Mes bilans
 							</a>
 						</li>
 
 						<li class = 'droite'>
-							<a href = 'gestionDuCompte.php'>
+							<a class = 'texte' href = 'gestionDuCompte.php'>
 								Gestion du compte
 							</a>
 						</li>

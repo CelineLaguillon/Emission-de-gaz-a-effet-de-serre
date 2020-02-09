@@ -115,3 +115,18 @@
 {
 	display: inline;
 }
+
+.fermer
+{
+	
+	background-color: #f50000;
+	color: #FFFFFF;
+	width: max-content;
+	padding: 5px;
+}
+
+.fermer:hover
+{
+	background-color: #f6f6f6;
+	color: #f50000;
+}

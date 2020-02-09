@@ -145,7 +145,7 @@ nav li
 	position: relative;
 }
 
-nav a
+nav a:link
 {
 	display: block;
 	text-decoration: none;
@@ -157,6 +157,11 @@ nav a
 nav a:hover
 {
 	color: #a7a7a7;
+}
+
+.texte:hover
+{
+	border-bottom: 2px solid;
 }
 
 .icone_deconnexion
@@ -173,7 +178,7 @@ nav a:hover
 	margin-top: -10px;
 }
 
-.logo_IUT:hover
+.logo_IUT:hover, .icone_deconnexion:hover
 {
 	transform: scale(1.25);
 }
