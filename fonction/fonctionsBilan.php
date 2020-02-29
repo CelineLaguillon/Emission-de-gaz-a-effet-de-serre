@@ -79,16 +79,7 @@
 			}
 		}
 		
-		function suppression_bilan($connexion){
-		   if(isset($_GET['bilan'])){
-		   		$table="poste";
-		   		$requete="DELETE FROM $table WHERE bilan='{$_GET['bilan']}'";
-		   		$resultat=mysqli_query($connexion,$requete); // Vérification à faire
-		        $table="bilan_carbone";
-			    $requete="DELETE FROM $table WHERE id='{$_GET['bilan']}'";
-			    $resultat=mysqli_query($connexion,$requete);
-		    } 
-		}
+		
 		
 
 ?>

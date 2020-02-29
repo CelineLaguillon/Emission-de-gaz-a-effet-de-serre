@@ -32,6 +32,7 @@
 					<input id = "index" type="password" name="mdp" id="mdp" required>
 					<input type="submit" id = "connexion" name="envoyer" value="Se connecter">
 				</form>
+				<a href="creerCompte.php">Créer un Compte</a>
 			</div>
 		</div>
 	</body>

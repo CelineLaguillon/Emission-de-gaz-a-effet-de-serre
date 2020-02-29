@@ -1,6 +1,7 @@
 <?php
 	require("fonction/fonction.php");
-	
+	require("fonction/fonctionsSuppression.php");
+	require("fonction/fonctionsCompte.php");
 	session_check();
 	if(!$connexion=connexion()){
 			die();	
@@ -31,7 +32,7 @@
 		<h1>Gestion du compte</h1>
 		
 		<div class = "formulaire">
-			<form method="post" action="action.php">
+			<form method="post" >
 				<label for="mdp">Mot de passe</label>
 				<input type="password" name="mdp" id="inputBilan" required>
 
@@ -43,7 +44,18 @@
 		</div>
 		
 		<div class = "supprimer">
-			<input type="submit" id = "supprimerCompte" name="supprimerCompte" value="Supprimer le compte">
+			<form method="post">
+				<input type="submit" id = "supprimerCompte" name="supprimerCompte" value="Supprimer le compte">
+			</form>
+			<?php
+				if(isset($_POST['supprimerCompte'])){
+					suppression_Compte($connexion);
+					header("Location:deconnexion.php");
+				}
+
+				modification_compte($connexion);
+
+			?>
 		</div>
 	</body>
 </html>

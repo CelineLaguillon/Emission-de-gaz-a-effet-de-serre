@@ -29,17 +29,7 @@
         	}
 
 		
-		//creerEtablissement
-		function ajout_établissement($connexion){
-			$tables="etablissement";
-			$requete="INSERT INTO $tables VALUES ('{$_POST['nom']}')";
-			$resultat=mysqli_query($connexion,$requete);
-			$tables="liaison";
-			$requete="INSERT INTO $tables VALUES('{$_SESSION['id']}','{$_POST['nom']}')"; 
-			// doit ajouter la possibilité de lier un utilisateur à un établissement déja existant.
-			$resultat=mysqli_query($connexion,$requete);
-			echo "Action réussie"; // Faire des vraies vérifications, avertir si echec
-		}
+		
 		
 		function navigation(){
 			echo "

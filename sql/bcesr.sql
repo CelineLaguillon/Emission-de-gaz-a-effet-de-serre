@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  sam. 29 fév. 2020 à 09:54
--- Version du serveur :  10.3.17-MariaDB-0+deb10u1
--- Version de PHP :  7.3.11-1~deb10u1
+-- Hôte : 127.0.0.1
+-- Généré le :  sam. 29 fév. 2020 à 23:47
+-- Version du serveur :  10.4.8-MariaDB
+-- Version de PHP :  7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -89,8 +89,17 @@ INSERT INTO `liaison` (`Utilisateur`, `Etablissement`) VALUES
 CREATE TABLE `poste` (
   `Nom` varchar(20) NOT NULL,
   `Bilan` int(11) NOT NULL,
-  `Quantite` float NOT NULL
+  `Quantite` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `poste`
+--
+
+INSERT INTO `poste` (`Nom`, `Bilan`, `Quantite`) VALUES
+('Avion', 15, 45),
+('Carton', 15, 51),
+('Imprimantes', 15, 17);
 
 -- --------------------------------------------------------
 
@@ -204,7 +213,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `bilan_carbone`
 --
 ALTER TABLE `bilan_carbone`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Contraintes pour les tables déchargées
@@ -221,7 +230,8 @@ ALTER TABLE `liaison`
 -- Contraintes pour la table `poste`
 --
 ALTER TABLE `poste`
-  ADD CONSTRAINT `poste_ibfk_1` FOREIGN KEY (`Bilan`) REFERENCES `bilan_carbone` (`Id`);
+  ADD CONSTRAINT `poste_ibfk_1` FOREIGN KEY (`Bilan`) REFERENCES `bilan_carbone` (`Id`),
+  ADD CONSTRAINT `poste_ibfk_2` FOREIGN KEY (`Nom`) REFERENCES `poste_info` (`Nom`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

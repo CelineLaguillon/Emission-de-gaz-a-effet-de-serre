@@ -55,22 +55,28 @@
 							<th>Unité</th>
 							<th>Facteur d'émission</th>
 							<th>Valeur</th>
+							<th>Total</th>
 						</tr>
 
 						
 						<?php
 							$type=["Sources fixes","Energie","Immobilisations","Materiel","Déplacements","Déchets"];
-							
+							$Total=0;
 							foreach($type as $value) {
 								echo "<tr>";
 								echo "<td colspan='5'>$value</td>";
 								echo "</tr>";
-								affichage_Poste($connexion,$value);
+								$Total+=affichage_Poste($connexion,$value);
 							}
 							
 						?>
-				</table>
 
+				</table>
+				<h1>
+					<?php
+						echo "Total : $Total kgCO2";
+					?>
+				</h1>
 				<input type='submit' name='valider' class = 'valider' value='Valider le bilan' />
 				<input type='reset' class = 'valider' value='Annuler' />
 			</form>

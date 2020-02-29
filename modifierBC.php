@@ -1,7 +1,7 @@
 <html>
 	<?php
 		require("fonction/fonction.php");
-		
+		require("fonction/fonctionsBilan.php");
 		session_check();
 		if(!$connexion=connexion()){
 			die();
@@ -38,7 +38,10 @@
 		</div>
 		
 		<div id = "modifierBilan">
-			<a class = 'fermer' href = 'voirBC.php'>
+			<?php
+
+			echo "<a class = 'fermer' href = 'voirBC.php?bilan=".$_GET['bilan']."'>";
+			?>
 				Fermer
 			</a>
 			<h1>Modifier le bilan</h1>

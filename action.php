@@ -20,7 +20,7 @@
 
 			if(mysqli_num_rows($resultat1)>0){
 				$verification=mysqli_fetch_row($resultat2);
-				if($_POST["login"]==$verification[1]){
+				if($mdp==$verification[1]){
 					session_start();
 					$_SESSION["id"]=$_POST['login'];
 					mysqli_close($connexion);
@@ -31,14 +31,14 @@
 				}
 			}
 			else{
-				header("Location: index.php?id=1");
+				header("Location: index.php?id=2");
 			}		
 		}
 		else{
-			header("Location: index.php?id=1");
+			header("Location: index.php?id=3");
 		}
 	}
 	else{
-			header("Location: index.php?id=1");
+			header("Location: index.php?id=4");
 	}	
 ?>

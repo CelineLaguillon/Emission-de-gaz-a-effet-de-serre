@@ -35,6 +35,7 @@
 	function affichage_Poste($connexion,$type){
 		$requete="SELECT pi.Categorie,p.Nom,pi.Unite,pi.Facteur,p.Quantite FROM poste as p INNER JOIN poste_info as pi ON p.Nom=pi.Nom WHERE bilan='{$_GET['bilan']}'and pi.type='{$type}' ";
 		$posteExistant=mysqli_query($connexion,$requete);
+		$total=0;
 		while(!is_null($ligne=mysqli_fetch_row($posteExistant))){
 			
 			echo "<tr>";
@@ -43,8 +44,19 @@
 			echo "<td>$ligne[2]</td>";
 			echo "<td>$ligne[3]kgCO2/$ligne[2]</td>";
 			echo "<td><input type='number' value='$ligne[4]' name ='$ligne[1]'></td>";
+			$emission=$ligne[3]*$ligne[4];
+			$total=$total + $emission;
+			echo "<td>$emission kgCO2</td>";
 			echo "</tr>";						
 		}
+		echo "<tr>";
+			echo "<td></td>";
+			echo "<td></td>";
+			echo "<td></td>";
+			echo "<td></td>";
+			echo "<td>Total : </td>";
+			echo "<td>$total kgCO2</td>";
+		return $total;
 
 	}	
 						
