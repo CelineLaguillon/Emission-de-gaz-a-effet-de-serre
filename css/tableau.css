@@ -59,11 +59,6 @@ th
 	color: white;
 }
 
-tr:hover td
-{
-	color: #0073cd;
-}
-
 tr:nth-child(even) td 
 {
 	background-color: #d8d8d8;
@@ -72,6 +67,11 @@ tr:nth-child(even) td
 tr:nth-child(odd) td 
 {
 	background-color: #f6f6f6;
+}
+
+tr:hover td
+{
+	background-color: #fff300;
 }
 
 #tableau

@@ -1,5 +1,5 @@
 <?php
-	require("fonction.php");
+	require("fonction/fonction.php");
 	
 	session_check();
 	if(!$connexion=connexion()){
@@ -14,6 +14,7 @@
 				
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bilan_poste.css">
+		<link rel="stylesheet" href="css/creer_modifierBC.css">
 		
 		<title>
 			Gestion du compte
@@ -31,9 +32,6 @@
 		
 		<div class = "formulaire">
 			<form method="post" action="action.php">
-				<label for="login">Nom d'utilisateur</label>
-				<input type="text" name="login" id="connexion" required>
-				
 				<label for="mdp">Mot de passe</label>
 				<input type="password" name="mdp" id="inputBilan" required>
 

@@ -1,32 +1,10 @@
+/* Bilan : voir */
+
 #afficherBC
 {
 	width: 100%;
 	text-align: center;
 }
-
-#afficherBC, #creerBilan
-{
-	display: inline-grid;
-}
-
-#afficherBC, #modifierBilan
-{
-	display: inline-grid;
-}
-
-#creerBilan, #modifierBilan
-{
-	display: none;
-	border-left: solid 2px grey;
-	padding-bottom: 20px;
-}
-
-#creerBilan h1, #modifierBilan h1
-{
-	padding-top: 0;
-}
-
-/* Bilan : voir */
 
 .nom-bilan
 {
@@ -34,12 +12,6 @@
 	float: left;
 	position: relative;
 	color: black;
-}
-
-.nom-bilan:hover 
-{
-    text-decoration: underline 2px;
-	color: #0657b1;
 }
 
 .action
@@ -78,6 +50,21 @@
 	padding-top: 8px;
 }
 
+.bilan
+{
+	display: inline-block;
+	width: 98%;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	backgound-color: #EAEAEA;
+	box-shadow: 5px 5px 15px #606060;
+}
+
+.bilan:hover
+{
+	transform: scale(1.01);	
+}
+
 /* Images */
 
 .creer, .actions img, .supprimer img
@@ -91,43 +78,4 @@
 .titrePoste
 {
 	text-align: center;
-}
-
-/* Modifier et créer */
-
-.formulaire, .supprimer
-{
-	text-align: center;
-	width: 60%;
-	max-width: 500px;
-	display: block;
-	margin: auto;
-	padding: 10px;
-	
-}
-
-.formulaire
-{
-	background-color: #c1c1c1;
-	box-shadow: 15px 15px 5px #646464;
-}
-
-.nom, .periode, .enregistrer
-{
-	display: inline;
-}
-
-.fermer
-{
-	
-	background-color: #f50000;
-	color: #FFFFFF;
-	width: max-content;
-	padding: 5px;
-}
-
-.fermer:hover
-{
-	background-color: #f6f6f6;
-	color: #f50000;
 }

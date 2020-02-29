@@ -1,30 +1,31 @@
-x<?php
-$file="donnees2020.csv";
-$fp=fopen($file,"r");
+<?php
+	
+	require("fonction/fonction.php");
+	
+	session_check();
+	if(!$connexion=connexion()){
+		die();
+	}
+	$table="poste";
+	if(isset($_POST['ajout'])){
+		$choix=$_POST['ajout_Poste'];
+		$requete="INSERT INTO $table(Nom,Bilan) VALUES('{$choix}','{$_GET['bilan']}')";
+		$resultat=mysqli_query($connexion,$requete);
+		
+	}
 
-$var[]= $_POST["gaz"];
-$var[]= $_POST["fioul"];
-$var[]= $_POST["electricite"];
-$var[]= $_POST["chauffage"];
-$var[]= $_POST["parking"];
-$var[]= $_POST["bureaux"];
-$var[]= $_POST["locaux"];
-$var[]= $_POST["garage"];
-$var[]= $_POST["imprimantes"];
-$var[]= $_POST["ordinateurs"];
-$var[]= $_POST["photocopieuses"];
-$var[]= $_POST["bus"];
-$var[]= $_POST["train"];
-$var[]= $_POST["moto"];
-$var[]= $_POST["avion"];
-$var[]= $_POST["voiture"];
-$var[]= $_POST["papier"];
-$var[]= $_POST["carton"];
-$var[]= $_POST["plastique"];
-$var[]= $_POST["dechets"];
-$var[]= $_POST["combu"];
+	if(isset($_POST['valider'])){
+		foreach ($_POST as $key => $value) {
+			if($value==$_POST['valider']){
+				continue;
+			}
+			$requete="UPDATE $table SET Quantite='{$value}' where nom='{$key}' and bilan='{$_GET['bilan']}'";
+			$resultat=mysqli_query($connexion,$requete);
+		}
 
-fputcsv($fp,$var,",");
-fclose($fp);
-header('Location:voirPoste.php?id=7');
+	}
+	header("Location:voirPoste.php?bilan=".$_GET['bilan']);
+
+
+
 ?>

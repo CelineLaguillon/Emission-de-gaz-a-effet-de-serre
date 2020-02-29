@@ -1,6 +1,6 @@
 <html>
 	<?php
-		require("fonction.php");
+		require("fonction/fonction.php");
 		
 		session_check();
 		if(!$connexion=connexion()){

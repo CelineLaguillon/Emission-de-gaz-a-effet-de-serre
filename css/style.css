@@ -39,6 +39,9 @@ h1
 	font-size: 40px;
 	margin: 10px;
 	padding-top: 90px;
+	padding-bottom: 25px;
+	background-color: #99c9ff;
+	color: white;
 }
 
 h2, h3
@@ -81,7 +84,7 @@ label
 		word-wrap: break-word;
 	}
 	
-	input[type="submit"]
+	input[type="submit"], input[type = "reset"]
 	{
 		text-align: center;
 		margin-top: 15px;
@@ -92,9 +95,9 @@ label
 		background-color: #008509;
 	}
 	
-	input[type="submit"]:hover
+	input[type="submit"]:hover, input[type = "reset"]:hover
 	{
-		background-color: #737373;
+		background-color: #a0a0a0;
 		color: black;
 	}
 	
@@ -179,7 +182,7 @@ nav a:hover
 
 .logo_IUT:hover, .icone_deconnexion:hover
 {
-	transform: scale(1.25);
+	transform: scale(1.10);
 }
 
 /* Liens */

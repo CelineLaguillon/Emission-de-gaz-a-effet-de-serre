@@ -1,7 +1,7 @@
 <html>
 	<?php
-		require("fonction.php");
-		
+		require("fonction/fonction.php");
+		require("fonction/fonctionsBilan.php");
 		session_check();
 		if(!$connexion=connexion()){
 			die();	

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  lun. 30 déc. 2019 à 15:25
--- Version du serveur :  10.4.8-MariaDB
--- Version de PHP :  7.1.32
+-- Hôte : localhost
+-- Généré le :  sam. 29 fév. 2020 à 09:54
+-- Version du serveur :  10.3.17-MariaDB-0+deb10u1
+-- Version de PHP :  7.3.11-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,9 @@ CREATE TABLE `bilan_carbone` (
 --
 
 INSERT INTO `bilan_carbone` (`Id`, `Nom`, `Etablissement`, `Periode`) VALUES
-(7, 'Global', 'IUT_VELIZY', '2018-2019');
+(15, 'Global', 'IUT_VELIZY', '2017-2018'),
+(14, 'Global', 'IUT_VELIZY', '2018-2019'),
+(16, 'Global', 'IUT_VELIZY', '2019-2020');
 
 -- --------------------------------------------------------
 
@@ -97,10 +99,40 @@ CREATE TABLE `poste` (
 --
 
 CREATE TABLE `poste_info` (
+  `Categorie` enum('1&2','3') NOT NULL,
+  `type` enum('Sources fixes','Energie','Immobilisations','Materiel','Déplacements','Déchets') NOT NULL,
   `Nom` varchar(30) NOT NULL,
-  `Facteur` int(11) NOT NULL,
-  `Unite` varchar(4) NOT NULL
+  `Facteur` float NOT NULL,
+  `Unite` enum('kWh','m2','nombre','km','tonnes/an') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `poste_info`
+--
+
+INSERT INTO `poste_info` (`Categorie`, `type`, `Nom`, `Facteur`, `Unite`) VALUES
+('3', 'Déplacements', 'Avion', 0.329, 'km'),
+('1&2', 'Immobilisations', 'Bureaux (métal)', 43, 'm2'),
+('3', 'Déplacements', 'Bus', 0.021, 'km'),
+('3', 'Déchets', 'Carton', 42, 'tonnes/an'),
+('1&2', 'Energie', 'Chauffage(gaz)', 737, 'kWh'),
+('3', 'Déchets', 'Déchets alimentaires', 96, 'tonnes/an'),
+('1&2', 'Energie', 'Electricité', 0.023, 'kWh'),
+('1&2', 'Sources fixes', 'Fioul', 951, 'kWh'),
+('1&2', 'Immobilisations', 'Garage(métal)', 60, 'm2'),
+('1&2', 'Sources fixes', 'Gaz natuel', 737, 'kWh'),
+('1&2', 'Materiel', 'Imprimantes', 30, 'nombre'),
+('1&2', 'Immobilisations', 'Locaux d\'enseignement', 120, 'm2'),
+('3', 'Déplacements', 'Moto', 0.034, 'km'),
+('3', 'Déchets', 'Non combustibles', 4, 'tonnes/an'),
+('1&2', 'Materiel', 'Ordinateurs', 350, 'nombre'),
+('3', 'Déchets', 'Papier', 61, 'tonnes/an'),
+('1&2', 'Immobilisations', 'Parking', 46, 'm2'),
+('1&2', 'Materiel', 'Photocopieuses', 900, 'nombre'),
+('3', 'Déchets', 'Plastiques', 156, 'tonnes/an'),
+('3', 'Déplacements', 'Train(TGV/RER)', 0.02, 'km'),
+('3', 'Déplacements', 'Voiture(diesel)', 0.064, 'km'),
+('3', 'Déplacements', 'Voiture(essence)', 0.066, 'km');
 
 -- --------------------------------------------------------
 
@@ -172,7 +204,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `bilan_carbone`
 --
 ALTER TABLE `bilan_carbone`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- Contraintes pour les tables déchargées
