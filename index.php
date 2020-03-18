@@ -18,7 +18,7 @@
 		<div id = "formulaire">			
 			<div id = "cadre">				
 				<a id = "creer" href = "creerUtilisateur.php">
-					<img src = "Images/ajouter_utilisateur.png" />
+					<img src = "Images/ajouter_utilisateur.png" alt = "Ajouter un utilisateur" title = "Ajouter un utilisateur"/>
 				</a>
 				
 				<form method="post" action="action.php">
