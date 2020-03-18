@@ -41,15 +41,17 @@
 					<input id = "index" type="text" name="lieu" id="lieu" required>
 					<input type="submit" id = "creation" name="envoyer" value="Créer le Compte">
 				</form>
-				<a href="index.php">Retour</a>
+				<a onclick = "retour()">Retour</a>
 				<?php
 					if(isset($_POST['envoyer'])){
 						$table="utilisateur";
 						$requete="SELECT login FROM $table WHERE login='{$_POST['login']}'";
 						$resultat=mysqli_query($connexion,$requete);
+						
 						if(mysqli_num_rows ($resultat)>0){
 							echo "Ce nom d'utilisateur existe déjà";
 						}
+						
 						else{
 							$table="etablissement";
 							$requete="SELECT * FROM $table WHERE Nom='{$_POST['lieu']}' ";
@@ -62,7 +64,6 @@
 								header("Location:index.php");
 							}
 						}
-						
 					}
 				?>
 			</div>

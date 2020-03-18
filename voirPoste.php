@@ -30,13 +30,12 @@
 	<body>
 		<h1>
 			<?php
-			$table="bilan_carbone";
-			$requete="Select nom,Periode from $table where id='{$_GET['bilan']}'";
-			$resultat=mysqli_query($connexion,$requete);
-			$ligne=mysqli_fetch_row($resultat);
-			echo "Les postes de gaz à effets de serre<br> $ligne[0] - $ligne[1]";
+				$table="bilan_carbone";
+				$requete="Select nom,Periode from $table where id='{$_GET['bilan']}'";
+				$resultat=mysqli_query($connexion,$requete);
+				$ligne=mysqli_fetch_row($resultat);
+				echo "Les postes de gaz à effets de serre<br> $ligne[0] - $ligne[1]";
 			?>
-			
 		</h1>
 		
 		<div id = "afficherPoste">
@@ -62,21 +61,20 @@
 						<?php
 							$type=["Sources fixes","Energie","Immobilisations","Materiel","Déplacements","Déchets"];
 							$Total=0;
-							foreach($type as $value) {
+							foreach($type as $value){
 								echo "<tr>";
-								echo "<td colspan='5'>$value</td>";
+								echo "<td colspan='6'>$value</td>";
 								echo "</tr>";
 								$Total+=affichage_Poste($connexion,$value);
-							}
-							
+							}	
 						?>
 
 				</table>
-				<h1>
+				<h2 id = "total">
 					<?php
 						echo "Total : $Total kgCO2";
 					?>
-				</h1>
+				</h2>
 				<input type='submit' name='valider' class = 'valider' value='Valider le bilan' />
 				<input type='reset' class = 'valider' value='Annuler' />
 			</form>

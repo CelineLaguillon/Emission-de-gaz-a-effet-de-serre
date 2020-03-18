@@ -21,10 +21,11 @@ function creation_compte($connexion){
 //creerEtablissement
 		function ajout_etablissement($connexion){
 			$tables="etablissement";
-			$requete="INSERT INTO $tables VALUES ('{$_POST['lieu']}')";
+			$lieu = strtoupper($_POST['lieu']);
+			$requete="INSERT INTO $tables VALUES ('{$lieu}')";
 			$resultat=mysqli_query($connexion,$requete);
 			$tables="liaison";
-			$requete="INSERT INTO $tables VALUES('{$_POST['login']}','{$_POST['lieu']}')"; 
+			$requete="INSERT INTO $tables VALUES('{$_POST['login']}','{$lieu}')"; 
 			$resultat=mysqli_query($connexion,$requete);
 		}
 

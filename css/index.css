@@ -6,6 +6,7 @@ body
 label
 {
 	text-align: left;
+	margin-top: 25px;
 }
 
 #login
@@ -25,16 +26,12 @@ label
 	width: 30%;
 }
 
-#formulaire
+#cadre, #creer_compte
 {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform:translate(-10%, -50%);
-}
-
-#cadre
-{
 	background-color: #ffffff;
 	padding: 30px;
 	box-shadow: 20px 20px 5px #a5a5a5;
@@ -60,4 +57,16 @@ label
 #login, #mdp
 {
 	margin-bottom: 10px;
+}
+
+#creer
+{
+	float: right;
+}
+
+#creer img
+{
+	max-height: 50px;
+	height: 15%;
+	width: auto;
 }

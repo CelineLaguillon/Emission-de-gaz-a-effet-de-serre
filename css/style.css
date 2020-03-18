@@ -21,6 +21,11 @@
 	{
 		font-size: 15px;
 	}
+
+	p
+	{
+		font-size: 14px; 
+	}
 }
 
 /* Propriétés générales */
@@ -38,10 +43,11 @@ h1
 	text-align: center;
 	font-size: 40px;
 	margin: 10px;
-	padding-top: 90px;
-	padding-bottom: 25px;
-	background-color: #99c9ff;
-	color: white;
+	padding-top: 100px;
+	color : #f58600;
+	font : 200% impact, futura, sans-serif;
+	text-transform : uppercase;
+	padding-left : 3px;
 }
 
 h2, h3
@@ -74,7 +80,6 @@ label
 	input
 	{
 		width: 100%;
-		max-width: 400px;
 		padding: 12px 20px;
 		border-radius: 10px;
 		white-space: pre-wrap;
@@ -92,25 +97,13 @@ label
 		color: white;
 		font-weight: bold;
 		border: none;
-		background-color: #008509;
+		background-color: #0657b1;
 	}
 	
 	input[type="submit"]:hover, input[type = "reset"]:hover
 	{
 		background-color: #a0a0a0;
 		color: black;
-	}
-	
-	#supprimerCompte
-	{
-		margin-top: 50px;
-		background-color: #fb0d34;
-	}
-	
-	#supprimerCompte:hover
-	{
-		background-color: #9c9c9c;
-		color: #fb0d34;
 	}
 	
 /* Menu de navigation */
@@ -145,6 +138,7 @@ nav ul
 nav li
 {
 	position: relative;
+	height: 10%;
 }
 
 nav a
@@ -178,11 +172,6 @@ nav a:hover
 	height: 50px;
 	width: auto;
 	margin-top: -10px;
-}
-
-.logo_IUT:hover, .icone_deconnexion:hover
-{
-	transform: scale(1.10);
 }
 
 /* Liens */

@@ -15,8 +15,6 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bilan_poste.css">
 		
-		<script src="js/script.js"></script>
-		
 		<title>
 			Mes bilans
 		</title>

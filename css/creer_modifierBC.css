@@ -33,7 +33,29 @@
 	display: block;
 	margin: auto;
 	padding: 10px;
-	
+}
+
+.supprimer
+{
+	margin-top: 30px;
+}
+
+#supprimerCompte
+{ 
+	font-size: 14px;
+	color: white;
+	font-weight: bold; 
+	background-color: #fb0d34;
+	border-radius: 10px; 
+	text-align: center; 
+	width: 100%; 
+	padding: 10px;
+}
+
+#supprimerCompte:hover
+{
+	background-color: #9c9c9c;
+	color: #fb0d34;
 }
 
 .formulaire

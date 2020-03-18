@@ -1,6 +1,7 @@
 <?php
 	function ajout_Poste($connexion){
 		echo "<form method='post' action='actionPoste.php?bilan=".$_GET['bilan']."'>";
+		echo "<div class = 'select'>";
 		echo "<select name='ajout_Poste'>";
 		$tables="poste";
 		$requete="SELECT Nom FROM $tables where bilan='{$_GET['bilan']}'";
@@ -26,7 +27,11 @@
 		}
 	
 		echo "</select>";
-		echo "<input type='submit' name='ajout' value ='ajout'>";
+		echo "</div>";
+		echo "
+			<div class = 'ajout'>
+				<input type='submit' name='ajout' value = 'Ajout du poste'>
+			</div>";
 		echo "</form>";
 	}
 
@@ -57,7 +62,5 @@
 			echo "<td>Total : </td>";
 			echo "<td>$total kgCO2</td>";
 		return $total;
-
-	}	
-						
+	}
 ?>

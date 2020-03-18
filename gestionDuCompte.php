@@ -4,9 +4,8 @@
 	require("fonction/fonctionsCompte.php");
 	session_check();
 	if(!$connexion=connexion()){
-			die();	
-				
-		}
+		die();	
+	}
 ?>
 
 <html>
@@ -32,30 +31,21 @@
 		<h1>Gestion du compte</h1>
 		
 		<div class = "formulaire">
-			<form method="post" >
+			<form method="post">
 				<label for="mdp">Mot de passe</label>
-				<input type="password" name="mdp" id="inputBilan" required>
+				<input type="password" name="mdp" required>
 
-				<label for="mdp">Confirmation du mot de passe</label>
-				<input type="password" name="mdp" id="inputBilan" required>
+				<label for="confirm_mdp">Confirmation du mot de passe</label>
+				<input type="password" name="confirm_mdp" required>
 
-				<input type="submit" id = "inputBilan" name="envoyer" value="Mettre à jour les informations" required>
+				<input type="submit" name="envoyer" value="Mettre à jour les informations" required>
 			</form>
 		</div>
 		
 		<div class = "supprimer">
-			<form method="post">
-				<input type="submit" id = "supprimerCompte" name="supprimerCompte" value="Supprimer le compte">
-			</form>
-			<?php
-				if(isset($_POST['supprimerCompte'])){
-					suppression_Compte($connexion);
-					header("Location:deconnexion.php");
-				}
-
-				modification_compte($connexion);
-
-			?>
+			<a id = "supprimerCompte" onclick = "return confirm('Souhaitez-vous quitter votre session ?');" href = 'supprimer_compte.php'>
+				Supprimer le compte
+			</a>
 		</div>
 	</body>
 </html>

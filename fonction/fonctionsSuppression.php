@@ -1,7 +1,4 @@
 <?php
-
-
-
 	function suppression_Bilan($connexion,$bilan){
 		$table="poste";
 		$requete="DELETE FROM $table WHERE bilan='{$bilan}'";
@@ -10,7 +7,6 @@
 		$requete="DELETE FROM $table WHERE id='{$bilan}'";
 		$resultat=mysqli_query($connexion,$requete);
 	}
-
 
 	function suppression_Compte($connexion){
 		$table="liaison";

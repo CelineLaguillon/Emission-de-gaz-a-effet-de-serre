@@ -2,8 +2,10 @@
 
 #afficherBC
 {
-	width: 100%;
+	width: 65%;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .nom-bilan
@@ -53,7 +55,7 @@
 .bilan
 {
 	display: inline-block;
-	width: 98%;
+	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 15px;
 	backgound-color: #EAEAEA;
@@ -62,7 +64,7 @@
 
 .bilan:hover
 {
-	transform: scale(1.01);	
+	transform: scale(1.02);	
 }
 
 /* Images */

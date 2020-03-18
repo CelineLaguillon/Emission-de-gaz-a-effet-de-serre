@@ -40,7 +40,6 @@
 table 
 {
 	border-collapse: collapse;
-	/* border: 3px solid rgb(150,150,150); */
 	letter-spacing: 1px;
 	font-size: 20px;
 	margin: auto;
@@ -48,7 +47,6 @@ table
 
 td, th 
 {
-	/* border: 2px solid rgb(190,190,190); */
 	padding: 10px 20px;
 	text-align: center;
 }
@@ -71,7 +69,7 @@ tr:nth-child(odd) td
 
 tr:hover td
 {
-	background-color: #fff300;
+	background-color: #cde5ff;
 }
 
 #tableau

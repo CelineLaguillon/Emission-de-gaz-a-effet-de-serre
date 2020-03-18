@@ -15,8 +15,12 @@
 			<img id = "logo_accueil" src = "Images/Logo.png" alt = "Logo de l'IUT de Vélizy-Villacoublay" title = "IUT de Vélizy"/>	
 		</div>
 		
-		<div id = "formulaire">
-			<div id = "cadre">	
+		<div id = "formulaire">			
+			<div id = "cadre">				
+				<a id = "creer" href = "creerUtilisateur.php">
+					<img src = "Images/ajouter_utilisateur.png" />
+				</a>
+				
 				<form method="post" action="action.php">
 					<?php
 							if(isset($_GET["id"])){
@@ -32,7 +36,6 @@
 					<input id = "index" type="password" name="mdp" id="mdp" required>
 					<input type="submit" id = "connexion" name="envoyer" value="Se connecter">
 				</form>
-				<a href="creerCompte.php">Créer un Compte</a>
 			</div>
 		</div>
 	</body>
