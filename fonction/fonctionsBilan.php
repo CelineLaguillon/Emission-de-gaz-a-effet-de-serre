@@ -21,7 +21,7 @@
 					echo "
 						<div class = 'bilan'>
 							<a class = 'nom-bilan' href='voirPoste.php?bilan=$mesBilans[0]'>
-								<h3 id = 'titreBilan'>
+								<h3 class = 'titreBilan'>
 									$mesBilans[1] $mesBilans[2]
 								</h3>
 							</a>
