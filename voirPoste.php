@@ -1,149 +1,83 @@
 <html>
-	
 	<?php
-		require("fonction.php");
-		haut("accueil.php");
-	?>
-	<body>
-<?php
-	session_start();
-	if(!isset($_SESSION["id"])){
-			header("Location: formulaire.php");
-	}
-	if(!$connexion=connexion()){
-		die();
-			
-	}
-	function ajout_poste($connexion){
-		$tables="POSTE";
-		$requete="INSERT INTO $tables VALUES('{$_POST['nom']}','{$_GET['bilan']}','{$_POST['consommation']}','{$_POST['facteur']}')";
-		$resultat=mysqli_query($connexion,$requete);
-	}
-?>
-	
-	<h1>Mes postes</h1>
-	<form method='post'>
-		<a href = "creerPoste.php" id = "creer">
-			<img src="Images/creer.png">
-		</a>
-		<?php
-			//affichage_poste($connexion);
-			mysqli_close($connexion);
-		?>
-	</form>
-	
-	<div id="poste">
-	<h2>Catégorie 1</h2>
-	<table>
-		<tr>
-			<th>Nom</th>
-			<th>Quantité</th>
-			<th>Unité</th>
-			<th>Facteur</th>
-			<th>Modifier</th>
-			<th>Supprimer</th>
-		<tr>
-		<tr>
-			<td>
-				Nom_01
-			</td>
-			<td>
-				Quantité_01
-			</td>
-			<td>
-				Unité_01
-			</td>
-			<td>
-				Facteur_01
-			</td>
-			<td>
-				<a href = "modifierPoste.php" id = "modifierPoste">
-					<img src="Images/modifier.png">
-				</a>
-			</td>
-			<td>
-				<a href = "supprimerPoste.php" id = "supprimerPoste">
-					<img src="Images/supprimer.png">
-				</a>
-			</td>
-		</tr>
-	</table>
-	<h2>Catégorie 2</h2>
-	<table border = "1" cellspacing = "10" cellpadding = "10">
-		<tr>
-			<th>Nom</th>
-			<th>Quantité</th>
-			<th>Unité</th>
-			<th>Facteur</th>
-			<th>Modifier</th>
-			<th>Supprimer</th>
-		<tr>
-		<tr>
-			<td>
-				Nom_01
-			</td>
-			<td>
-				Quantité_01
-			</td>
-			<td>
-				Unité_01
-			</td>
-			<td>
-				Facteur_01
-			</td>
-			<td>
-				<a href = "modifierPoste.php" id = "modifierPoste">
-					<img src="Images/modifier.png">
-				</a>
-			</td>
-			<td>
-				<a href = "supprimerPoste.php" id = "supprimerPoste">
-					<img src="Images/supprimer.png">
-				</a>
-			</td>
-		</tr>
-	</table>
-	<h2>Catégorie 3</h2>
-	<table border = "1" cellspacing = "10" cellpadding = "10">
-		<tr>
-			<th>Nom</th>
-			<th>Quantité</th>
-			<th>Unité</th>
-			<th>Facteur</th>
-			<th>Modifier</th>
-			<th>Supprimer</th>
-		<tr>
-		<tr>
-			<td>
-				Nom_01
-			</td>
-			<td>
-				Quantité_01
-			</td>
-			<td>
-				Unité_01
-			</td>
-			<td>
-				Facteur_01
-			</td>
-			<td>
-				<a href = "modifierPoste.php" id = "modifierPoste">
-					<img src="Images/modifier.png">
-				</a>
-			</td>
-			<td>
-				<a href = "supprimerPoste.php" id = "supprimerPoste">
-					<img src="Images/supprimer.png">
-				</a>
-			</td>
-		</tr>
-	</table>
-	</div>
-	
-	<?php
-		if(isset($_POST['nom']) && isset($_POST['enregistrer'])){
-			ajout_poste($connexion);
+		require("fonction/fonction.php");
+		require("fonction/fonctionsPoste.php");
+		session_check();
+		if(!$connexion=connexion()){
+			die();
 		}
 	?>
+	
+	<head>
+		<meta charset='UTF-8'>
+				
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bilan_poste.css">
+		<link rel="stylesheet" href="css/poste.css">
+		<link rel="stylesheet" href="css/tableau.css">
+		
+		<title>
+			Mes bilans
+		</title>
+	</head>
+	
+	<header>
+		<?php
+			navigation();
+		?>
+	</header>
+	
+	<body>
+		<h1>
+			<?php
+				$table="bilan_carbone";
+				$requete="Select nom,Periode from $table where id='{$_GET['bilan']}'";
+				$resultat=mysqli_query($connexion,$requete);
+				$ligne=mysqli_fetch_row($resultat);
+				echo "Les postes de gaz à effets de serre<br> $ligne[0] - $ligne[1]";
+			?>
+		</h1>
+		
+		<div id = "afficherPoste">
+			<div id="ajoutPoste">
+				<?php
+					ajout_Poste($connexion);
+				?>
+			</div>
+			<?php
+				echo "<form method='post' action='actionPoste.php?bilan=".$_GET['bilan']."'>";
+			?>
+				<table>
+						<tr>
+							<th>Catégorie</th>
+							<th>Poste</th>
+							<th>Unité</th>
+							<th>Facteur d'émission</th>
+							<th>Valeur</th>
+							<th>Total</th>
+						</tr>
+
+						
+						<?php
+							$type=["Sources fixes","Energie","Immobilisations","Materiel","Déplacements","Déchets"];
+							$Total=0;
+							foreach($type as $value){
+								echo "<tr>";
+								echo "<td colspan='6'>$value</td>";
+								echo "</tr>";
+								$Total+=affichage_Poste($connexion,$value);
+							}	
+						?>
+
+				</table>
+				<h2 id = "total">
+					<?php
+						echo "Total : $Total kgCO2";
+					?>
+				</h2>
+				<input type='submit' name='valider' class = 'valider' value='Valider le bilan' />
+				<input type='reset' class = 'valider' value='Annuler' />
+			</form>
+		</div>
 	</body>
 </html>

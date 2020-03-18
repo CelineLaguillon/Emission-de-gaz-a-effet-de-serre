@@ -1,27 +1,41 @@
 <html>
 	<?php
-		require("fonction.php");
-		session_start();
-		if(!isset($_SESSION["id"])){
-				header("Location: formulaire.php");
-		}
+		require("fonction/fonction.php");
+		require("fonction/fonctionsBilan.php");
+		
+		session_check();
 		if(!$connexion=connexion()){
 			die();
 		}
-		
-		haut("accueil.php");
 	?>
+	
+	<head>
+		<meta charset='UTF-8'>
+				
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bilan_poste.css">
 		
-		<body>
-			<div id = "bilans">
-				<h1>Vos bilans de gaz à effet de serre</h1>
-				<a href = "creerBC.php" id = "creer">
-					<img src="Images/creer.png" title="Créer un bilan">
-				</a>
+		<title>
+			Mes bilans
+		</title>
+	</head>
+	
+	<header>
+		<?php
+			navigation();
+		?>
+	</header>
+	
+	<body>
+		<h1>
+			Mes bilans de gaz à effets de serre
+		</h1>
+		
+		<div id = "afficherBC">
 			<?php
 				affichage_bilan($connexion);
 				mysqli_close($connexion);
 			?>
-			</div>
-		</body>
+		</div>
+	</body>
 </html>

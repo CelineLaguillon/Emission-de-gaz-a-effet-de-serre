@@ -1,0 +1,85 @@
+.afficherBC_02
+{
+	width: 60%;	
+}
+
+.afficherBC_02, #creerBilan
+{
+	display: inline-grid;
+}
+
+.afficherBC_02, #modifierBilan
+{
+	display: inline-grid;
+}
+
+#creerBilan, #modifierBilan
+{
+	width: 35%; 
+	border-left: solid 2px grey;
+	padding-bottom: 20px;
+}
+
+#creerBilan h1, #modifierBilan h1
+{
+	padding-top: 0;
+}
+
+.formulaire, .supprimer
+{
+	text-align: center;
+	width: 60%;
+	max-width: 500px;
+	display: block;
+	margin: auto;
+	padding: 10px;
+}
+
+.supprimer
+{
+	margin-top: 30px;
+}
+
+#supprimerCompte
+{ 
+	font-size: 14px;
+	color: white;
+	font-weight: bold; 
+	background-color: #fb0d34;
+	border-radius: 10px; 
+	text-align: center; 
+	width: 100%; 
+	padding: 10px;
+}
+
+#supprimerCompte:hover
+{
+	background-color: #9c9c9c;
+	color: #fb0d34;
+}
+
+.formulaire
+{
+	background-color: #c1c1c1;
+	box-shadow: 15px 15px 5px #646464;
+}
+
+.nom, .periode, .enregistrer
+{
+	display: inline;
+}
+
+.fermer
+{
+	
+	background-color: #f50000;
+	color: #FFFFFF;
+	width: max-content;
+	padding: 5px;
+}
+
+.fermer:hover
+{
+	background-color: #f6f6f6;
+	color: #f50000;
+}

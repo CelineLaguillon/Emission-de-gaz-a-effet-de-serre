@@ -3,7 +3,7 @@
 {
 	table, thead, tbody, th, td, tr
 	{ 
-		display: block;		
+		display: block;
 	}
 	
 	thead tr
@@ -35,79 +35,49 @@
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-	
-	td.supprimer, th.supprimer
-	{
-		display: none;
-	}
-	
-	th.titre_table
-	{
-		display: none;
-	}
-	
-	#affichage td:nth-of-type(1):before {
-		content: "Date";
-	}
-	
-	#affichage td:nth-of-type(2):before {
-		content: "Ouverture";
-	}
-	
-	#affichage td:nth-of-type(3):before {
-		content: "Min";
-	}
-	
-	#affichage td:nth-of-type(4):before {
-		content: "Max";
-	}
-	
-	#affichage td:nth-of-type(5):before {
-		content: "Cloture";
-	}
-	
-	#affichage td:nth-of-type(6):before {
-		content: "Volume";
-	}
 }
 
 table 
 {
 	border-collapse: collapse;
-	border: 3px solid rgb(150,150,150);
 	letter-spacing: 1px;
 	font-size: 20px;
+	margin: auto;
 }
 
 td, th 
 {
-	border: 2px solid rgb(190,190,190);
 	padding: 10px 20px;
 	text-align: center;
 }
 
 th
 {
-	background-color: #505152;
+	background-color: #0657b1;
 	color: white;
-}
-
-tr:hover td
-{
-	color: #0073cd;
 }
 
 tr:nth-child(even) td 
 {
-	background-color: rgb(250,250,250);
+	background-color: #d8d8d8;
 }
 
 tr:nth-child(odd) td 
 {
-	background-color: rgb(230,230,230);
+	background-color: #f6f6f6;
+}
+
+tr:hover td
+{
+	background-color: #cde5ff;
 }
 
 #tableau
 {
 	overflow-x: auto;
+}
+
+#modifierPoste, #supprimerPoste
+{
+	display: contents;
 }

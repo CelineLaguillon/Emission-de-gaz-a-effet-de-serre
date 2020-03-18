@@ -1,15 +1,32 @@
 <html>
 	<?php
-		require("fonction.php");
-		session_start();
-		if(!isset($_SESSION["id"])){
-				header("Location: formulaire.php");
-		}
+		require("fonction/fonction.php");
 		
-		haut_02("voirPoste.php");
+		session_check();
+		if(!$connexion=connexion()){
+			die();	
+				
+		}
 	?>
+	
+	<head>
+		<meta charset='UTF-8'>
+				
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/menu.css">
+		
+		<title>
+			Accueil
+		</title>
+	</head>
+	
+	<header>
+		<?php
+			navigation();
+		?>
+	</header>
+	
 	<body>
-		<div id='global'>
 		<h1>Créer un poste</h1>
 		<form method='post' action='accueil.php'>
 		<label for = "nom">Nom</label><br>
@@ -29,6 +46,5 @@
 		
 		<input type='submit' name='enregistrer' value='Enregistrer ce Bilan' required>
 		</form>
-		</div>
 	</body>
 </html>
