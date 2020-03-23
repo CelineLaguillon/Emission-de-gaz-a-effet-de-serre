@@ -3,7 +3,13 @@
 		//voirBC
 		function affichage_bilan($connexion){
 			$tables="liaison";
-			$requete="SELECT Etablissement FROM $tables where Utilisateur='{$_SESSION['id']}'";
+			if($_SESSION['id']=='admin'){
+				$requete="SELECT Etablissement FROM $tables";
+			}
+			else{
+				$requete="SELECT Etablissement FROM $tables where Utilisateur='{$_SESSION['id']}'";
+			}
+			
 			$resultat=mysqli_query($connexion,$requete);
 			while(!is_null($ligne=mysqli_fetch_row($resultat))){
 				echo "

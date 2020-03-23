@@ -2,7 +2,7 @@
 	<?php
 		require("fonction/fonction.php");
 		require("fonction/fonctionsBilan.php");
-		
+		require("fonction/fonctionsAdmin.php");
 		session_check();
 		if(!$connexion=connexion()){
 			die();
@@ -22,7 +22,13 @@
 	
 	<header>
 		<?php
-			navigation();
+			if($_SESSION['id']=='admin'){
+				navigationAdmin();
+			}
+			else{
+				navigation();
+			}
+			
 		?>
 	</header>
 	

@@ -1,11 +1,20 @@
 <?php
 	require("fonction/fonction.php");
-	require("fonction/fonctionsSuppression.php");
 	require("fonction/fonctionsCompte.php");
+	require("fonction/fonctionsAdmin.php");
 	session_check();
 	if(!$connexion=connexion()){
 		die();	
 	}
+
+	$compte=$_SESSION['compte'.$_GET['compte']];
+	$table='utilisateur';
+	$requete="SELECT * FROM $table WHERE login='{$compte}'";
+	$resultat=mysqli_query($connexion,$requete);
+	$ligne=mysqli_fetch_row($resultat);
+	$mdp=$ligne[1];
+
+
 ?>
 
 <html>
@@ -23,7 +32,7 @@
 	
 	<header>
 		<?php
-			navigation();
+			navigationAdmin();
 		?>
 	</header>
 	
@@ -32,9 +41,14 @@
 		
 		<div class = "formulaire">
 			<form method="post">
+				<label for="login">Login</label>
+				<?php
+				echo '<input type="text" name="Login" value="'.$compte.'" required>';
+				?>
 				<label for="mdp">Mot de passe</label>
-				<input type="password" name="mdp" required>
-
+				<?php
+				echo '<input type="text" name="mdp" value="'.$mdp.'" required>';
+				?>
 				<label for="confirm_mdp">Confirmation du mot de passe</label>
 				<input type="password" name="confirm_mdp" required>
 
@@ -42,10 +56,12 @@
 			</form>
 		</div>
 		<?php
-		modification_compte($connexion);
+		modification_compteAdmin($connexion,$compte);
 		?>
 		<div class = "supprimer">
-			<a id = "supprimerCompte" onclick = "return confirm('Souhaitez-vous quitter votre session ?');" href = 'supprimer_compte.php'>
+			<?php
+				echo "<a id = 'supprimerCompte' onclick = 'return confirm('Souhaitez-vous quitter votre session ?');' href = \"supprimer_compteAdmin.php?compte=".$compte."\">";
+			?>
 				Supprimer le compte
 			</a>
 		</div>

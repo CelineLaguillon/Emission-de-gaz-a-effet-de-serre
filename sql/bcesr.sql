@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  sam. 29 fév. 2020 à 23:47
--- Version du serveur :  10.4.8-MariaDB
--- Version de PHP :  7.1.32
+-- Hôte : localhost
+-- Généré le :  lun. 23 mars 2020 à 13:16
+-- Version du serveur :  10.3.17-MariaDB-0+deb10u1
+-- Version de PHP :  7.3.11-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,7 +60,8 @@ CREATE TABLE `etablissement` (
 
 INSERT INTO `etablissement` (`Nom`) VALUES
 ('IUT_ORSAY'),
-('IUT_VELIZY');
+('IUT_VELIZY'),
+('PARIS DESCARTES');
 
 -- --------------------------------------------------------
 
@@ -97,9 +98,15 @@ CREATE TABLE `poste` (
 --
 
 INSERT INTO `poste` (`Nom`, `Bilan`, `Quantite`) VALUES
+('Avion', 14, 0),
 ('Avion', 15, 45),
-('Carton', 15, 51),
-('Imprimantes', 15, 17);
+('Bus', 15, 1500),
+('Carton', 15, 52),
+('Chauffage(gaz)', 15, 4000),
+('Electricité', 15, 2),
+('Fioul', 15, 0),
+('Imprimantes', 15, 17),
+('Ordinateurs', 15, 144);
 
 -- --------------------------------------------------------
 
@@ -112,7 +119,7 @@ CREATE TABLE `poste_info` (
   `type` enum('Sources fixes','Energie','Immobilisations','Materiel','Déplacements','Déchets') NOT NULL,
   `Nom` varchar(30) NOT NULL,
   `Facteur` float NOT NULL,
-  `Unite` enum('kWh','m2','nombre','km','tonnes/an') NOT NULL
+  `Unite` enum('kWh','m2','nombre','km','passager/km','tonnes/an') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -120,28 +127,27 @@ CREATE TABLE `poste_info` (
 --
 
 INSERT INTO `poste_info` (`Categorie`, `type`, `Nom`, `Facteur`, `Unite`) VALUES
-('3', 'Déplacements', 'Avion', 0.329, 'km'),
-('1&2', 'Immobilisations', 'Bureaux (métal)', 43, 'm2'),
-('3', 'Déplacements', 'Bus', 0.021, 'km'),
-('3', 'Déchets', 'Carton', 42, 'tonnes/an'),
+('3', 'Déplacements', 'Avion', 0.23, 'passager/km'),
+('1&2', 'Immobilisations', 'Bureaux (métal)', 650, 'm2'),
+('3', 'Déplacements', 'Bus', 0.182, 'passager/km'),
+('3', 'Déchets', 'Carton', 1063, 'tonnes/an'),
 ('1&2', 'Energie', 'Chauffage(gaz)', 737, 'kWh'),
-('3', 'Déchets', 'Déchets alimentaires', 96, 'tonnes/an'),
-('1&2', 'Energie', 'Electricité', 0.023, 'kWh'),
-('1&2', 'Sources fixes', 'Fioul', 951, 'kWh'),
-('1&2', 'Immobilisations', 'Garage(métal)', 60, 'm2'),
-('1&2', 'Sources fixes', 'Gaz natuel', 737, 'kWh'),
-('1&2', 'Materiel', 'Imprimantes', 30, 'nombre'),
-('1&2', 'Immobilisations', 'Locaux d\'enseignement', 120, 'm2'),
-('3', 'Déplacements', 'Moto', 0.034, 'km'),
-('3', 'Déchets', 'Non combustibles', 4, 'tonnes/an'),
-('1&2', 'Materiel', 'Ordinateurs', 350, 'nombre'),
-('3', 'Déchets', 'Papier', 61, 'tonnes/an'),
-('1&2', 'Immobilisations', 'Parking', 46, 'm2'),
+('3', 'Déchets', 'Déchets alimentaires', 48.1, 'tonnes/an'),
+('1&2', 'Energie', 'Electricité', 0.065, 'kWh'),
+('1&2', 'Sources fixes', 'Fioul', 0.324, 'kWh'),
+('1&2', 'Immobilisations', 'Garage(métal)', 220, 'm2'),
+('1&2', 'Sources fixes', 'Gaz natuel', 0.243, 'kWh'),
+('1&2', 'Materiel', 'Imprimantes', 110, 'nombre'),
+('1&2', 'Immobilisations', 'Locaux d\'enseignement', 440, 'm2'),
+('3', 'Déplacements', 'Moto', 0.238, 'km'),
+('1&2', 'Materiel', 'Ordinateurs', 417, 'nombre'),
+('3', 'Déchets', 'Papier', 919, 'tonnes/an'),
+('1&2', 'Immobilisations', 'Parking', 319, 'm2'),
 ('1&2', 'Materiel', 'Photocopieuses', 900, 'nombre'),
-('3', 'Déchets', 'Plastiques', 156, 'tonnes/an'),
-('3', 'Déplacements', 'Train(TGV/RER)', 0.02, 'km'),
-('3', 'Déplacements', 'Voiture(diesel)', 0.064, 'km'),
-('3', 'Déplacements', 'Voiture(essence)', 0.066, 'km');
+('3', 'Déchets', 'Plastiques', 2383, 'tonnes/an'),
+('3', 'Déplacements', 'TER (gazole)', 0.0798, 'km'),
+('3', 'Déplacements', 'Train(TGV/RER)', 0.00369, 'km'),
+('3', 'Déplacements', 'Voiture', 0.258, 'km');
 
 -- --------------------------------------------------------
 
@@ -160,6 +166,7 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`Login`, `Mdp`) VALUES
 ('admin', 'admin'),
+('test', 'test'),
 ('user', 'user');
 
 --
@@ -190,8 +197,8 @@ ALTER TABLE `liaison`
 -- Index pour la table `poste`
 --
 ALTER TABLE `poste`
-  ADD UNIQUE KEY `Nom` (`Nom`),
-  ADD KEY `Bilan` (`Bilan`);
+  ADD UNIQUE KEY `Nom` (`Nom`,`Bilan`) USING BTREE,
+  ADD KEY `poste_ibfk_1` (`Bilan`);
 
 --
 -- Index pour la table `poste_info`

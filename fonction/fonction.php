@@ -55,6 +55,7 @@
 							</a>
 						</li>
 						
+						
 						<li class = 'droite'>
 							<a class = 'deconnexion' onclick = \"return confirm('Souhaitez-vous quitter votre session ?');\" href = 'deconnexion.php'>
 								<img class = 'icone_deconnexion' src = 'Images/deconnexion.png' alt = 'Déconnexion' title = 'Déconnexion'>
