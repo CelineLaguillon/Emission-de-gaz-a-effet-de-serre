@@ -32,9 +32,9 @@ require("fonction/fonctionsSuppression.php");
 	}
 
 	function modification_compteAdmin($connexion,$compte){
-		if(isset($_POST['mdp'],$_POST['envoyer'])){
+		if(isset($_POST['envoyer'])){
 			$tables="utilisateur";
-			$requete="UPDATE $tables SET mdp='{$_POST['mdp']}'where login='{$compte}' ";
+			$requete="UPDATE $tables SET mdp='{$_POST['confirm_mdp']}'where login='{$compte}' ";
 			$resultat=mysqli_query($connexion,$requete);
 			header("Location:voirBC.php");
 		}

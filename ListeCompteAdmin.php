@@ -40,7 +40,6 @@
 			$requete="SELECT login FROM $table";
 			$compteur=0;
 			$resultat=mysqli_query($connexion,$requete);
-			$ligne=mysqli_fetch_row($resultat);
 			while(!is_null($ligne=mysqli_fetch_row($resultat))){
 				$_SESSION['compte'.$compteur]=$ligne[0];
 				echo "

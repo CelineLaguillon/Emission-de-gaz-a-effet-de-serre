@@ -45,19 +45,25 @@
 				<?php
 				echo '<input type="text" name="Login" value="'.$compte.'" required>';
 				?>
-				<label for="mdp">Mot de passe</label>
-				<?php
-				echo '<input type="text" name="mdp" value="'.$mdp.'" required>';
-				?>
-				<label for="confirm_mdp">Confirmation du mot de passe</label>
+				<label for="mdp">Ancien Mot de passe</label>
+				<input type="password" name="mdp" required>
+				<label for="confirm_mdp">Nouveau Mot de passe</label>
 				<input type="password" name="confirm_mdp" required>
 
 				<input type="submit" name="envoyer" value="Mettre à jour les informations" required>
 			</form>
-		</div>
+		
 		<?php
-		modification_compteAdmin($connexion,$compte);
+		if(isset($_POST['envoyer'])){
+			if($_POST['mdp']==$mdp){
+				modification_compteAdmin($connexion,$compte);
+			}
+			else {
+				echo '<span style="color:red;">ERREUR lors de la modification de mot de passe</span>';
+			}
+		}
 		?>
+		</div>
 		<div class = "supprimer">
 			<?php
 				echo "<a id = 'supprimerCompte' onclick = 'return confirm('Souhaitez-vous quitter votre session ?');' href = \"supprimer_compteAdmin.php?compte=".$compte."\">";

@@ -32,7 +32,7 @@
 		
 		<div class = "formulaire">
 			<form method="post">
-				<label for="mdp">Mot de passe</label>
+				<label for="mdp">Nouveau mot de passe</label>
 				<input type="password" name="mdp" required>
 
 				<label for="confirm_mdp">Confirmation du mot de passe</label>
@@ -40,10 +40,17 @@
 
 				<input type="submit" name="envoyer" value="Mettre à jour les informations" required>
 			</form>
-		</div>
+
 		<?php
+		if($_POST['mdp']==$_POST['confirm_mdp']){
 		modification_compte($connexion);
+		}
+		else{
+		echo '<span style="color:red;">ERREUR : MOT DE PASSE DIFFERENT</span>';
+		}
+		
 		?>
+		</div>
 		<div class = "supprimer">
 			<a id = "supprimerCompte" onclick = "return confirm('Souhaitez-vous quitter votre session ?');" href = 'supprimer_compte.php'>
 				Supprimer le compte
