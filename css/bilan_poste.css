@@ -1,0 +1,83 @@
+/* Bilan : voir */
+
+#afficherBC
+{
+	width: 65%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nom-bilan
+{
+	margin-left: 20px;
+	float: left;
+	position: relative;
+	color: black;
+}
+
+.action
+{
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.titre
+{
+	float: left;
+	margin-top: 15px;
+	background-color: #929292;
+	color: white;
+	width: 100%;
+}
+
+.creer, .actions
+{
+	float: right;
+	margin-right: 15px;
+}
+
+.etablissement
+{
+	float: left;
+}
+
+.etablissement, .creer
+{
+	display: inline;
+}
+
+.creer
+{
+	padding-top: 8px;
+}
+
+.bilan
+{
+	display: inline-block;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	backgound-color: #EAEAEA;
+	box-shadow: 5px 5px 15px #606060;
+}
+
+.bilan:hover
+{
+	transform: scale(1.02);	
+}
+
+/* Images */
+
+.creer, .actions img, .supprimer img
+{
+	height: 50;
+	width: 50;
+}
+
+/* Poste : voir */
+
+.titrePoste
+{
+	text-align: center;
+}

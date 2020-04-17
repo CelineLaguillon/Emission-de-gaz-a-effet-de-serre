@@ -1,5 +1,6 @@
 <?php
-		require("fonction.php");
-		suppression_bilan(connexion());
-		header("Location:voirBC.php");
+	require("fonction/fonction.php");
+	require("fonction/fonctionsSuppression.php");
+	suppression_bilan(connexion(),$_GET['bilan']);
+	header("Location:voirBC.php");
 ?>

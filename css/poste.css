@@ -1,0 +1,42 @@
+#afficherPoste
+{
+	display: block;
+	text-align: center;
+}
+
+#total
+{
+	text-align: center;
+}
+
+.select, .ajout
+{
+	display: inline-block;
+}
+
+.ajout
+{
+	margin-left: 50px;
+}
+
+.select
+{
+	width: 200px;
+}
+
+.select
+{
+	border-bottom: #0657b1 2px solid;
+}
+
+.select select 
+{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%; 
+	height: auto;
+	border: 0;
+	padding: .75em;
+	text-overflow: ellipsis;
+}
